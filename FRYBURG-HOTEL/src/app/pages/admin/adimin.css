@@ -1,0 +1,206 @@
+.navbar {
+  background: #25211e;
+  padding: 15px 0;
+}
+
+.dashboard-header {
+  margin-bottom: 20px;
+}
+
+.dashboard-header p {
+  color: #9b7350;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 5px;
+}
+
+.dashboard-header h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.dashboard-header span {
+  color: #777;
+}
+
+
+/* CARDS */
+
+.card-dashboard {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-dashboard i {
+  color: #9b7350;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.card-dashboard span {
+  color: #777;
+  font-size: 14px;
+}
+
+.card-dashboard strong {
+  font-size: 25px;
+  margin-top: 5px;
+}
+
+
+/* CAIXAS */
+
+.dashboard-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  height: 100%;
+}
+
+.dashboard-box h2 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.dashboard-box p {
+  color: #777;
+}
+
+
+/* FINANCEIRO */
+
+.finance-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.finance-item span {
+  color: #666;
+}
+
+.finance-item strong {
+  color: #333;
+}
+
+.finance-item .entrada {
+  color: #39834a;
+}
+
+.finance-item .saida {
+  color: #b84a4a;
+}
+
+.finance-item.total {
+  font-size: 20px;
+}
+
+.finance-item.total strong {
+  color: #9b7350;
+}
+
+
+/* OCUPAÇÃO */
+
+.ocupacao {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.ocupacao strong {
+  display: block;
+  font-size: 45px;
+  color: #9b7350;
+}
+
+.ocupacao span {
+  color: #777;
+}
+
+.progress {
+  height: 12px;
+}
+
+.progress-bar {
+  background: #9b7350;
+}
+
+.ocupacao-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: #777;
+  font-size: 14px;
+}
+
+
+/* SETORES */
+
+.section-title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.section-text {
+  color: #777;
+}
+
+.sector-card {
+  display: block;
+  text-decoration: none;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  transition: 0.2s;
+}
+
+.sector-card:hover {
+  transform: translateY(-5px);
+}
+
+.sector-card i {
+  font-size: 30px;
+  color: #9b7350;
+}
+
+.sector-card h3 {
+  color: #333;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.sector-card p {
+  color: #777;
+  min-height: 45px;
+}
+
+.sector-card span {
+  color: #9b7350;
+  font-weight: bold;
+}
+
+.voltar {
+  background: #f5f2ed;
+}
+
+
+@media (max-width: 576px) {
+
+  .dashboard-header h1 {
+    font-size: 2.3rem;
+  }
+
+  .dashboard-box {
+    padding: 20px;
+  }
+
+}
