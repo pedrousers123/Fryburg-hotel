@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand" routerLink="/">
+    <a class="navbar-brand" routerLink="/home">
       <i class="bi bi-buildings"></i>
       Fryburg Hotel
     </a>
@@ -10,248 +10,640 @@
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#menu"
+      aria-controls="menu"
+      aria-expanded="false"
+      aria-label="Abrir menu"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+
         <li class="nav-item">
-          <a class="nav-link" href="#hoteis">Hotéis</a>
+          <a class="nav-link" href="#hoteis">
+            Hotéis
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#experiencia">Experiência</a>
+          <a class="nav-link" href="#experiencia">
+            Experiência
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#contato">Contato</a>
+          <a class="nav-link" href="#contato">
+            Contato
+          </a>
         </li>
 
-        <li class="nav-item ms-lg-3">
-          <a class="btn btn-light" routerLink="/admin">
+        <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+          <a
+            class="btn btn-light"
+            routerLink="/admin"
+          >
+            <i class="bi bi-speedometer2"></i>
             Área administrativa
           </a>
         </li>
+
       </ul>
     </div>
   </div>
 </nav>
 
-<section class="hero">
-  <div class="hero-overlay">
-    <div class="container text-center text-white">
-      <p class="hero-subtitle">BEM-VINDO AO</p>
 
-      <h1>Fryburg Hotel</h1>
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-overlay">
+
+    <div class="container text-center text-white">
+
+      <p class="hero-subtitle">
+        BEM-VINDO AO
+      </p>
+
+      <h1>
+        Fryburg Hotel
+      </h1>
 
       <p class="hero-text">
         Conforto, natureza e experiências inesquecíveis.
       </p>
 
-      <a href="#hoteis" class="btn btn-lg btn-primary">
+      <a
+        href="#hoteis"
+        class="btn btn-primary btn-lg"
+      >
         Conheça nossos hotéis
+        <i class="bi bi-arrow-down"></i>
       </a>
+
     </div>
+
   </div>
+
 </section>
 
-<section id="experiencia" class="experience py-5">
+
+<!-- EXPERIÊNCIA -->
+<section
+  id="experiencia"
+  class="experience py-5"
+>
+
   <div class="container text-center">
-    <p class="section-subtitle">UMA NOVA EXPERIÊNCIA</p>
 
-    <h2>Seu descanso começa aqui</h2>
-
-    <p class="section-description">
-      Encontre o lugar perfeito para descansar, aproveitar a natureza
-      e viver momentos especiais.
+    <p class="section-subtitle">
+      UMA NOVA EXPERIÊNCIA
     </p>
 
+    <h2>
+      Seu descanso começa aqui
+    </h2>
+
+    <p class="section-description">
+      Encontre o lugar perfeito para descansar,
+      aproveitar a natureza e viver momentos especiais.
+    </p>
+
+
     <div class="row mt-5 g-4">
+
+      <!-- CARD 1 -->
       <div class="col-md-4">
+
         <div class="feature-card">
+
           <i class="bi bi-tree"></i>
-          <h3>Natureza</h3>
+
+          <h3>
+            Natureza
+          </h3>
+
           <p>
-            Ambientes cercados pela natureza para você relaxar.
+            Ambientes cercados pela natureza
+            para você relaxar e aproveitar
+            cada momento.
           </p>
+
         </div>
+
       </div>
 
+
+      <!-- CARD 2 -->
       <div class="col-md-4">
+
         <div class="feature-card">
-          <i class="bi bi-star"></i>
-          <h3>Conforto</h3>
+
+          <i class="bi bi-stars"></i>
+
+          <h3>
+            Conforto
+          </h3>
+
           <p>
-            Quartos preparados para proporcionar uma experiência incrível.
+            Quartos preparados para proporcionar
+            uma experiência confortável e especial.
           </p>
+
         </div>
+
       </div>
 
+
+      <!-- CARD 3 -->
       <div class="col-md-4">
+
         <div class="feature-card">
+
           <i class="bi bi-heart"></i>
-          <h3>Experiência</h3>
+
+          <h3>
+            Experiência
+          </h3>
+
           <p>
-            Momentos especiais para guardar na memória.
+            Momentos especiais para você aproveitar
+            e guardar na memória.
           </p>
+
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
-<section id="hoteis" class="hotels py-5">
+
+<!-- HOTÉIS -->
+<section
+  id="hoteis"
+  class="hotels py-5"
+>
+
   <div class="container">
+
     <div class="text-center mb-5">
-      <p class="section-subtitle">ESCOLHA SEU DESTINO</p>
 
-      <h2>Nossos hotéis</h2>
-
-      <p>
-        Três experiências diferentes. Uma única missão:
-        fazer sua estadia ser inesquecível.
+      <p class="section-subtitle">
+        ESCOLHA SEU DESTINO
       </p>
+
+      <h2>
+        Nossos hotéis
+      </h2>
+
+      <p class="section-description">
+        Três experiências diferentes.
+        Uma única missão: fazer sua estadia ser inesquecível.
+      </p>
+
     </div>
+
 
     <div class="row g-4">
 
+
+      <!-- HOTEL 1 -->
       <div class="col-lg-4">
+
         <div class="hotel-card">
+
           <img
-            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80"
+            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85"
             alt="Fryburg Mountain Hotel"
           />
 
           <div class="hotel-content">
-            <span>★★★★★</span>
 
-            <h3>Fryburg Mountain</h3>
+            <div class="hotel-stars">
+              ★★★★★
+            </div>
+
+            <h3>
+              Fryburg Mountain
+            </h3>
 
             <p>
-              Uma experiência cercada por montanhas e natureza.
+              Uma experiência cercada por montanhas,
+              natureza e tranquilidade.
             </p>
 
+
             <div class="hotel-info">
+
               <span>
                 <i class="bi bi-geo-alt"></i>
                 Nova Friburgo
               </span>
 
-              <strong>R$ 450/noite</strong>
+              <strong>
+                R$ 450/noite
+              </strong>
+
             </div>
+
+
+            <div class="hotel-features">
+
+              <span>
+                <i class="bi bi-water"></i>
+                Piscina
+              </span>
+
+              <span>
+                <i class="bi bi-cup-hot"></i>
+                Restaurante
+              </span>
+
+              <span>
+                <i class="bi bi-wifi"></i>
+                Wi-Fi
+              </span>
+
+            </div>
+
 
             <a
               class="btn btn-primary w-100"
-              routerLink="/hotel"
+              routerLink="/hotel/1"
             >
               Conhecer hotel
+              <i class="bi bi-arrow-right"></i>
             </a>
+
           </div>
+
         </div>
+
       </div>
 
+
+      <!-- HOTEL 2 -->
       <div class="col-lg-4">
+
         <div class="hotel-card">
+
           <img
-            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80"
+            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85"
             alt="Fryburg Lake Hotel"
           />
 
           <div class="hotel-content">
-            <span>★★★★★</span>
 
-            <h3>Fryburg Lake</h3>
+            <div class="hotel-stars">
+              ★★★★★
+            </div>
+
+            <h3>
+              Fryburg Lake
+            </h3>
 
             <p>
-              Tranquilidade, conforto e uma paisagem incrível.
+              Tranquilidade, conforto e uma
+              paisagem incrível para aproveitar.
             </p>
 
+
             <div class="hotel-info">
+
               <span>
                 <i class="bi bi-geo-alt"></i>
                 Região Serrana
               </span>
 
-              <strong>R$ 390/noite</strong>
+              <strong>
+                R$ 390/noite
+              </strong>
+
             </div>
+
+
+            <div class="hotel-features">
+
+              <span>
+                <i class="bi bi-water"></i>
+                Piscina
+              </span>
+
+              <span>
+                <i class="bi bi-cup-hot"></i>
+                Restaurante
+              </span>
+
+              <span>
+                <i class="bi bi-car-front"></i>
+                Estacionamento
+              </span>
+
+            </div>
+
 
             <a
               class="btn btn-primary w-100"
-              routerLink="/hotel"
+              routerLink="/hotel/2"
             >
               Conhecer hotel
+              <i class="bi bi-arrow-right"></i>
             </a>
+
           </div>
+
         </div>
+
       </div>
 
+
+      <!-- HOTEL 3 -->
       <div class="col-lg-4">
+
         <div class="hotel-card">
+
           <img
-            src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=80"
+            src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=85"
             alt="Fryburg Premium Hotel"
           />
 
           <div class="hotel-content">
-            <span>★★★★★</span>
 
-            <h3>Fryburg Premium</h3>
+            <div class="hotel-stars">
+              ★★★★★
+            </div>
+
+            <h3>
+              Fryburg Premium
+            </h3>
 
             <p>
-              Uma experiência sofisticada para quem busca exclusividade.
+              Uma experiência sofisticada para quem
+              busca exclusividade e conforto.
             </p>
 
+
             <div class="hotel-info">
+
               <span>
                 <i class="bi bi-geo-alt"></i>
                 Nova Friburgo
               </span>
 
-              <strong>R$ 650/noite</strong>
+              <strong>
+                R$ 650/noite
+              </strong>
+
             </div>
+
+
+            <div class="hotel-features">
+
+              <span>
+                <i class="bi bi-stars"></i>
+                Premium
+              </span>
+
+              <span>
+                <i class="bi bi-cup-hot"></i>
+                Restaurante
+              </span>
+
+              <span>
+                <i class="bi bi-water"></i>
+                Piscina
+              </span>
+
+            </div>
+
 
             <a
               class="btn btn-primary w-100"
-              routerLink="/hotel"
+              routerLink="/hotel/3"
             >
               Conhecer hotel
+              <i class="bi bi-arrow-right"></i>
             </a>
+
           </div>
+
         </div>
+
       </div>
 
     </div>
+
   </div>
+
 </section>
 
+
+<!-- DIFERENCIAL -->
+<section class="differential py-5">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6">
+
+        <p class="section-subtitle">
+          POR QUE ESCOLHER O FRYBURG?
+        </p>
+
+        <h2>
+          Mais que uma hospedagem.
+          Uma experiência.
+        </h2>
+
+        <p>
+          Nossa proposta é proporcionar muito mais do que
+          apenas um lugar para dormir. Cada espaço foi
+          pensado para oferecer conforto, tranquilidade
+          e momentos inesquecíveis.
+        </p>
+
+
+        <div class="differential-list">
+
+          <div>
+            <i class="bi bi-check-circle-fill"></i>
+            <span>
+              Ambientes confortáveis e exclusivos
+            </span>
+          </div>
+
+          <div>
+            <i class="bi bi-check-circle-fill"></i>
+            <span>
+              Restaurante próprio
+            </span>
+          </div>
+
+          <div>
+            <i class="bi bi-check-circle-fill"></i>
+            <span>
+              Piscina e áreas de lazer
+            </span>
+          </div>
+
+          <div>
+            <i class="bi bi-check-circle-fill"></i>
+            <span>
+              Atendimento de qualidade
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-6">
+
+        <div class="differential-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85"
+            alt="Interior do Fryburg Hotel"
+          />
+
+          <div class="image-badge">
+
+            <strong>
+              5 estrelas
+            </strong>
+
+            <span>
+              Experiência Fryburg
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CHAMADA PARA RESERVA -->
 <section class="cta py-5">
+
   <div class="container text-center text-white">
-    <h2>Pronto para sua próxima experiência?</h2>
+
+    <p class="section-subtitle">
+      SUA PRÓXIMA VIAGEM
+    </p>
+
+    <h2>
+      Pronto para viver essa experiência?
+    </h2>
 
     <p>
       Escolha seu hotel e faça sua reserva.
     </p>
 
-    <a routerLink="/hotel" class="btn btn-light btn-lg">
+    <a
+      routerLink="/hotel/1"
+      class="btn btn-light btn-lg"
+    >
+      <i class="bi bi-calendar-check"></i>
       Fazer uma reserva
     </a>
+
   </div>
+
 </section>
 
+
+<!-- RODAPÉ -->
 <footer id="contato">
-  <div class="container text-center">
-    <h3>
-      <i class="bi bi-buildings"></i>
-      Fryburg Hotel
-    </h3>
 
-    <p>
-      Sua experiência começa aqui.
-    </p>
+  <div class="container">
 
-    <p class="copyright">
-      © 2026 Fryburg Hotel — Projeto acadêmico
-    </p>
+    <div class="row g-4">
+
+      <div class="col-md-6">
+
+        <h3>
+          <i class="bi bi-buildings"></i>
+          Fryburg Hotel
+        </h3>
+
+        <p>
+          Conforto, natureza e experiências
+          inesquecíveis na Região Serrana.
+        </p>
+
+      </div>
+
+
+      <div class="col-md-3">
+
+        <h5>
+          Navegação
+        </h5>
+
+        <a href="#hoteis">
+          Hotéis
+        </a>
+
+        <a href="#experiencia">
+          Experiência
+        </a>
+
+        <a routerLink="/admin">
+          Área administrativa
+        </a>
+
+      </div>
+
+
+      <div class="col-md-3">
+
+        <h5>
+          Contato
+        </h5>
+
+        <p>
+          <i class="bi bi-geo-alt"></i>
+          Nova Friburgo - RJ
+        </p>
+
+        <p>
+          <i class="bi bi-envelope"></i>
+          contato@fryburghotel.com
+        </p>
+
+        <p>
+          <i class="bi bi-telephone"></i>
+          (22) 99999-9999
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <hr />
+
+    <div class="text-center">
+
+      <p class="copyright">
+        © 2026 Fryburg Hotel — Projeto acadêmico
+      </p>
+
+    </div>
+
   </div>
+
 </footer>
