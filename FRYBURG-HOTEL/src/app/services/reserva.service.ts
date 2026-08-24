@@ -5,22 +5,39 @@ import { Reserva } from '../interfaces/reserva';
   providedIn: 'root',
 })
 export class ReservaService {
-  private reservas: Reserva[] = [
-    {
-      id: 1,
-      hotelId: 1,
-      cliente: 'João Silva',
-      checkIn: '2026-08-20',
-      checkOut: '2026-08-24',
-    },
-    {
-      id: 2,
-      hotelId: 2,
-      cliente: 'Maria Souza',
-      checkIn: '2026-08-18',
-      checkOut: '2026-08-21',
-    },
-  ];
+  private reservas: Reserva[] = this.carregarReservas();
+
+  private carregarReservas(): Reserva[] {
+    const dados = localStorage.getItem('fryburg_reservas');
+
+    if (dados) {
+      return JSON.parse(dados);
+    }
+
+    const reservasIniciais: Reserva[] = [
+      {
+        id: 1,
+        hotelId: 1,
+        cliente: 'João Silva',
+        checkIn: '2026-08-20',
+        checkOut: '2026-08-24',
+      },
+      {
+        id: 2,
+        hotelId: 2,
+        cliente: 'Maria Souza',
+        checkIn: '2026-08-18',
+        checkOut: '2026-08-21',
+      },
+    ];
+
+    localStorage.setItem(
+      'fryburg_reservas',
+      JSON.stringify(reservasIniciais),
+    );
+
+    return reservasIniciais;
+  }
 
   listarReservas(): Reserva[] {
     return this.reservas;
@@ -48,5 +65,10 @@ export class ReservaService {
 
   adicionarReserva(reserva: Reserva): void {
     this.reservas.push(reserva);
+
+    localStorage.setItem(
+      'fryburg_reservas',
+      JSON.stringify(this.reservas),
+    );
   }
 }

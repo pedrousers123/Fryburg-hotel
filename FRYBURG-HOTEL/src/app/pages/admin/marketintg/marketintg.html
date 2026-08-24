@@ -1,1 +1,202 @@
-<p>marketintg works!</p>
+<div class="pagina">
+
+  <div class="cabecalho">
+
+    <div>
+      <h1>Marketing</h1>
+      <p>Controle das campanhas, anúncios e investimentos do Fryburg Hotel.</p>
+    </div>
+
+    <a routerLink="/admin/dashboard" class="botao-voltar">
+      ← Voltar ao Dashboard
+    </a>
+
+  </div>
+
+
+  <div class="indicadores">
+
+    <div class="indicador">
+      <span>Campanhas</span>
+      <strong>{{ totalCampanhas }}</strong>
+      <small>Total cadastrado</small>
+    </div>
+
+    <div class="indicador">
+      <span>Campanhas ativas</span>
+      <strong>{{ campanhasAtivas }}</strong>
+      <small>Campanhas em andamento</small>
+    </div>
+
+    <div class="indicador">
+      <span>Investimento</span>
+      <strong>{{ investimentoTotal | currency:'BRL' }}</strong>
+      <small>Orçamento total</small>
+    </div>
+
+    <div class="indicador">
+      <span>Gasto</span>
+      <strong>{{ gastoTotal | currency:'BRL' }}</strong>
+      <small>Valor já utilizado</small>
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>Nova campanha</h2>
+
+    <div class="formulario">
+
+      <div class="campo">
+
+        <label>Nome da campanha</label>
+
+        <input
+          type="text"
+          [(ngModel)]="nome"
+          placeholder="Ex: Promoção de verão"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label>Canal</label>
+
+        <input
+          type="text"
+          [(ngModel)]="canal"
+          placeholder="Ex: Instagram"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label>Investimento</label>
+
+        <input
+          type="number"
+          [(ngModel)]="investimento"
+          placeholder="0"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label>Gasto atual</label>
+
+        <input
+          type="number"
+          [(ngModel)]="gasto"
+          placeholder="0"
+        >
+
+      </div>
+
+
+      <button
+        class="botao-adicionar"
+        (click)="adicionarCampanha()"
+      >
+        + Adicionar
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>Campanhas de marketing</h2>
+
+    <div class="tabela-container">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>Campanha</th>
+            <th>Canal</th>
+            <th>Investimento</th>
+            <th>Gasto</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+
+        </thead>
+
+
+        <tbody>
+
+          <tr *ngFor="let campanha of campanhas">
+
+            <td>
+              <strong>{{ campanha.nome }}</strong>
+            </td>
+
+            <td>
+              {{ campanha.canal }}
+            </td>
+
+            <td>
+              {{ campanha.investimento | currency:'BRL' }}
+            </td>
+
+            <td>
+              {{ campanha.gasto | currency:'BRL' }}
+            </td>
+
+            <td>
+
+              <button
+                class="status"
+                [class.ativa]="campanha.status === 'Ativa'"
+                [class.concluida]="campanha.status === 'Concluída'"
+                (click)="alterarStatus(campanha)"
+              >
+                {{ campanha.status }}
+              </button>
+
+            </td>
+
+            <td>
+
+              <button
+                class="botao-excluir"
+                (click)="removerCampanha(campanha.id)"
+              >
+                Excluir
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+
+  <div class="resultado">
+
+    <div>
+      <span>Saldo disponível para marketing</span>
+      <strong>{{ saldoMarketing | currency:'BRL' }}</strong>
+    </div>
+
+  </div>
+
+</div>

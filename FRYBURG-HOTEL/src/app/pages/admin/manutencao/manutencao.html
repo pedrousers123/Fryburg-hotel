@@ -1,1 +1,161 @@
-<p>manutencao works!</p>
+<div class="pagina">
+
+  <div class="cabecalho">
+    <div>
+      <h1>Manutenção</h1>
+      <p>Controle de reparos, equipamentos e serviços do hotel.</p>
+    </div>
+
+    <a routerLink="/admin/dashboard" class="botao-voltar">
+      ← Voltar ao Dashboard
+    </a>
+  </div>
+
+
+  <div class="indicadores">
+
+    <div class="indicador">
+      <span>Total</span>
+      <strong>{{ totalManutencoes }}</strong>
+      <small>Manutenções cadastradas</small>
+    </div>
+
+    <div class="indicador">
+      <span>Pendentes</span>
+      <strong>{{ manutencoesPendentes }}</strong>
+      <small>Aguardando serviço</small>
+    </div>
+
+    <div class="indicador">
+      <span>Em andamento</span>
+      <strong>{{ manutencoesAndamento }}</strong>
+      <small>Serviços em execução</small>
+    </div>
+
+    <div class="indicador">
+      <span>Custo total</span>
+      <strong>{{ custoTotal | currency:'BRL' }}</strong>
+      <small>Valor das manutenções</small>
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>Nova manutenção</h2>
+
+    <div class="formulario">
+
+      <div class="campo">
+        <label>Equipamento / serviço</label>
+
+        <input
+          type="text"
+          [(ngModel)]="equipamento"
+          placeholder="Ex: Ar-condicionado"
+        >
+      </div>
+
+      <div class="campo">
+        <label>Setor</label>
+
+        <input
+          type="text"
+          [(ngModel)]="setor"
+          placeholder="Ex: Quartos"
+        >
+      </div>
+
+      <div class="campo">
+        <label>Custo</label>
+
+        <input
+          type="number"
+          [(ngModel)]="custo"
+          placeholder="0"
+        >
+      </div>
+
+      <button
+        class="botao-adicionar"
+        (click)="adicionarManutencao()"
+      >
+        + Adicionar
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>Manutenções cadastradas</h2>
+
+    <div class="tabela-container">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Equipamento</th>
+            <th>Setor</th>
+            <th>Custo</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let manutencao of manutencoes">
+
+            <td>
+              <strong>{{ manutencao.equipamento }}</strong>
+            </td>
+
+            <td>
+              {{ manutencao.setor }}
+            </td>
+
+            <td>
+              {{ manutencao.custo | currency:'BRL' }}
+            </td>
+
+            <td>
+
+              <button
+                class="status"
+                [class.pendente]="manutencao.status === 'Pendente'"
+                [class.andamento]="manutencao.status === 'Em andamento'"
+                [class.concluida]="manutencao.status === 'Concluída'"
+                (click)="alterarStatus(manutencao)"
+              >
+                {{ manutencao.status }}
+              </button>
+
+            </td>
+
+            <td>
+
+              <button
+                class="botao-excluir"
+                (click)="removerManutencao(manutencao.id)"
+              >
+                Excluir
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
