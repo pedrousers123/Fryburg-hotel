@@ -1,0 +1,232 @@
+.dashboard {
+  min-height: 100vh;
+  padding: 35px;
+  background: #f5f6f8;
+  color: #222;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.dashboard-header p {
+  margin: 6px 0 0;
+  color: #777;
+}
+
+.card-info {
+  background: white;
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 140px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  transition: 0.2s;
+}
+
+.card-info:hover {
+  transform: translateY(-3px);
+}
+
+.card-info span {
+  color: #777;
+  font-size: 14px;
+}
+
+.card-info h2 {
+  margin: 8px 0 4px;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.card-info small {
+  color: #999;
+}
+
+.icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #f0eadf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.panel {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.panel-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.panel-title h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 650;
+}
+
+.panel-title p {
+  margin: 5px 0 0;
+  color: #888;
+  font-size: 14px;
+}
+
+.occupancy {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.occupancy-number {
+  min-width: 120px;
+  text-align: center;
+}
+
+.occupancy-number strong {
+  display: block;
+  font-size: 38px;
+}
+
+.occupancy-number span {
+  color: #888;
+}
+
+.progress-area {
+  flex: 1;
+}
+
+.progress {
+  height: 12px;
+  background: #e9e9e9;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #b18a55;
+  border-radius: 20px;
+}
+
+.room-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  color: #777;
+  font-size: 13px;
+}
+
+.room-info strong {
+  color: #222;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.summary-item span {
+  color: #666;
+}
+
+.summary-item strong {
+  font-size: 16px;
+}
+
+.indicators {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.indicator {
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.indicator span {
+  display: block;
+  color: #777;
+  font-size: 14px;
+}
+
+.indicator strong {
+  display: block;
+  font-size: 28px;
+  margin: 7px 0;
+}
+
+.indicator small {
+  color: #999;
+}
+
+@media (max-width: 900px) {
+
+  .indicators {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .dashboard {
+    padding: 20px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .occupancy {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .room-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .indicators {
+    grid-template-columns: 1fr;
+  }
+
+}

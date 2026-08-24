@@ -1,1 +1,202 @@
-<p>reservas works!</p>
+<nav class="navbar navbar-dark">
+  <div class="container">
+
+    <a
+      class="navbar-brand"
+      routerLink="/home"
+    >
+      <i class="bi bi-buildings"></i>
+      Fryburg Hotel
+    </a>
+
+    <a
+      class="btn btn-outline-light"
+      routerLink="/home"
+    >
+      Voltar
+    </a>
+
+  </div>
+</nav>
+
+
+<div class="container py-5">
+
+  @if (hotel) {
+
+    <div class="reservation-page">
+
+      <div class="reservation-header">
+
+        <p>RESERVA</p>
+
+        <h1>
+          {{ hotel.nome }}
+        </h1>
+
+        <span>
+          R$ {{ hotel.precoDiaria }} por noite
+        </span>
+
+      </div>
+
+
+      <div class="reservation-box">
+
+        <h2>Faça sua reserva</h2>
+
+        <p class="text-muted">
+          Preencha os dados abaixo para calcular
+          sua hospedagem.
+        </p>
+
+
+        <div class="row g-3">
+
+          <div class="col-12">
+
+            <label>
+              Nome do hóspede
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="cliente"
+              placeholder="Digite seu nome"
+            />
+
+          </div>
+
+
+          <div class="col-md-6">
+
+            <label>
+              Check-in
+            </label>
+
+            <input
+              type="date"
+              class="form-control"
+              [(ngModel)]="checkIn"
+            />
+
+          </div>
+
+
+          <div class="col-md-6">
+
+            <label>
+              Check-out
+            </label>
+
+            <input
+              type="date"
+              class="form-control"
+              [(ngModel)]="checkOut"
+            />
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="btn btn-primary mt-4"
+          (click)="calcularReserva()"
+        >
+          Calcular valor
+        </button>
+
+
+        @if (noites > 0) {
+
+          <div class="total-box mt-4">
+
+            <div>
+              <span>
+                Quantidade de noites
+              </span>
+
+              <strong>
+                {{ noites }}
+              </strong>
+            </div>
+
+
+            <div>
+              <span>
+                Valor da diária
+              </span>
+
+              <strong>
+                R$ {{ hotel.precoDiaria }}
+              </strong>
+            </div>
+
+
+            <hr />
+
+
+            <div class="total">
+
+              <span>
+                Total
+              </span>
+
+              <strong>
+                R$ {{ total }}
+              </strong>
+
+            </div>
+
+          </div>
+
+        }
+
+
+        @if (mensagem) {
+
+          <div
+            class="alert mt-4"
+            [class.alert-success]="sucesso"
+            [class.alert-danger]="!sucesso"
+          >
+            {{ mensagem }}
+          </div>
+
+        }
+
+
+        <button
+          class="btn btn-success w-100 mt-3"
+          (click)="reservar()"
+        >
+          <i class="bi bi-calendar-check"></i>
+          Confirmar reserva
+        </button>
+
+      </div>
+
+    </div>
+
+  } @else {
+
+    <div class="text-center py-5">
+
+      <h2>
+        Hotel não encontrado
+      </h2>
+
+      <a
+        routerLink="/home"
+        class="btn btn-primary"
+      >
+        Voltar para Home
+      </a>
+
+    </div>
+
+  }
+
+</div>

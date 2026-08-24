@@ -4,8 +4,8 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-admin',
   imports: [RouterLink],
-  templateUrl: './admin.html',
-  styleUrl: './admin.css',
+  templateUrl: './adimin.html',
+  styleUrl: './adimin.css',
 })
 export class Admin {
   reservas = 18;

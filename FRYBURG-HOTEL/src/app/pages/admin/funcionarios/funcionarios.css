@@ -1,0 +1,281 @@
+.funcionarios-page {
+  min-height: 100vh;
+  background: #f5f6f4;
+  padding: 35px;
+  color: #273832;
+}
+
+
+/* TOPO */
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.subtitulo {
+  color: #a27b3d;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.topo h1 {
+  margin: 5px 0;
+  font-size: 32px;
+}
+
+.topo p {
+  color: #777;
+  margin: 0;
+}
+
+.btn-voltar {
+  background: #263a35;
+  color: white;
+  text-decoration: none;
+  padding: 11px 18px;
+  border-radius: 7px;
+}
+
+.btn-voltar:hover {
+  background: #3b514b;
+}
+
+
+/* RESUMO */
+
+.resumo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.resumo-card {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icone {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #f4ecdc;
+  color: #a27b3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+}
+
+.resumo-card span {
+  display: block;
+  color: #777;
+  font-size: 13px;
+}
+
+.resumo-card strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 24px;
+}
+
+
+/* PAINEL */
+
+.painel {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+.titulo {
+  margin-bottom: 22px;
+}
+
+.titulo span {
+  color: #a27b3d;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.titulo h2 {
+  margin: 5px 0 0;
+  font-size: 21px;
+}
+
+
+/* FORMULÁRIO */
+
+.formulario {
+  display: grid;
+  grid-template-columns: 1.5fr 1.2fr 1fr 1fr auto;
+  gap: 15px;
+  align-items: end;
+}
+
+.campo label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 7px;
+  color: #555;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 11px;
+  outline: none;
+  background: white;
+}
+
+.campo input:focus,
+.campo select:focus {
+  border-color: #a27b3d;
+}
+
+.btn-adicionar {
+  border: none;
+  background: #263a35;
+  color: white;
+  padding: 11px 17px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-adicionar:hover {
+  background: #3b514b;
+}
+
+
+/* TABELA */
+
+.tabela {
+  width: 100%;
+}
+
+.linha {
+  display: grid;
+  grid-template-columns: 1.5fr 1.2fr 1fr 1fr 60px;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 5px;
+  border-bottom: 1px solid #eee;
+  color: #666;
+  font-size: 14px;
+}
+
+.cabecalho {
+  color: #999;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.nome {
+  color: #333;
+  font-weight: 500;
+}
+
+.nome i {
+  color: #a27b3d;
+  margin-right: 7px;
+}
+
+.salario {
+  color: #426b57;
+  font-weight: bold;
+}
+
+.btn-excluir {
+  border: none;
+  background: #f4e6e3;
+  color: #99584c;
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-excluir:hover {
+  background: #ecd7d2;
+}
+
+.vazio {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}
+
+.vazio i {
+  font-size: 35px;
+}
+
+.vazio p {
+  margin-top: 10px;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 1000px) {
+
+  .formulario {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .btn-adicionar {
+    width: 100%;
+  }
+
+  .linha {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 50px;
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .funcionarios-page {
+    padding: 20px;
+  }
+
+  .topo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .resumo {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+
+  .linha.cabecalho {
+    display: none;
+  }
+
+  .linha {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .linha span:nth-child(1) {
+    grid-column: span 2;
+  }
+}

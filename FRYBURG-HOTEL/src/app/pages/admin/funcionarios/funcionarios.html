@@ -1,1 +1,211 @@
-<p>funcionarios works!</p>
+<div class="funcionarios-page">
+
+  <div class="topo">
+    <div>
+      <span class="subtitulo">GESTÃO DE PESSOAS</span>
+      <h1>Funcionários</h1>
+      <p>Controle da equipe e da folha salarial do hotel.</p>
+    </div>
+
+    <a routerLink="/admin/dashboard" class="btn-voltar">
+      <i class="bi bi-arrow-left"></i>
+      Dashboard
+    </a>
+  </div>
+
+
+  <!-- RESUMO -->
+
+  <div class="resumo">
+
+    <div class="resumo-card">
+      <div class="icone">
+        <i class="bi bi-people"></i>
+      </div>
+
+      <div>
+        <span>Total de funcionários</span>
+        <strong>{{ funcionarios.length }}</strong>
+      </div>
+    </div>
+
+
+    <div class="resumo-card">
+      <div class="icone">
+        <i class="bi bi-cash-stack"></i>
+      </div>
+
+      <div>
+        <span>Folha salarial</span>
+        <strong>
+          R$ {{ totalFolha | number:'1.2-2' }}
+        </strong>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- CADASTRO -->
+
+  <div class="painel">
+
+    <div class="titulo">
+      <div>
+        <span>NOVO CADASTRO</span>
+        <h2>Adicionar funcionário</h2>
+      </div>
+    </div>
+
+
+    <div class="formulario">
+
+      <div class="campo">
+        <label>Nome</label>
+
+        <input
+          type="text"
+          [(ngModel)]="nome"
+          placeholder="Nome completo"
+        >
+      </div>
+
+
+      <div class="campo">
+        <label>Cargo</label>
+
+        <input
+          type="text"
+          [(ngModel)]="cargo"
+          placeholder="Ex: Recepcionista"
+        >
+      </div>
+
+
+      <div class="campo">
+        <label>Setor</label>
+
+        <select [(ngModel)]="setor">
+
+          <option value="">Selecione</option>
+
+          <option value="Administração">
+            Administração
+          </option>
+
+          <option value="Recepção">
+            Recepção
+          </option>
+
+          <option value="Restaurante">
+            Restaurante
+          </option>
+
+          <option value="Limpeza">
+            Limpeza
+          </option>
+
+          <option value="Manutenção">
+            Manutenção
+          </option>
+
+          <option value="Marketing">
+            Marketing
+          </option>
+
+        </select>
+      </div>
+
+
+      <div class="campo">
+        <label>Salário</label>
+
+        <input
+          type="number"
+          [(ngModel)]="salario"
+          placeholder="Ex: 2500"
+        >
+      </div>
+
+
+      <button
+        class="btn-adicionar"
+        (click)="adicionarFuncionario()"
+      >
+        <i class="bi bi-plus-lg"></i>
+        Adicionar
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- LISTA -->
+
+  <div class="painel">
+
+    <div class="titulo">
+      <div>
+        <span>EQUIPE</span>
+        <h2>Funcionários cadastrados</h2>
+      </div>
+    </div>
+
+
+    <div class="tabela">
+
+      <div class="linha cabecalho">
+        <span>Funcionário</span>
+        <span>Cargo</span>
+        <span>Setor</span>
+        <span>Salário</span>
+        <span>Ação</span>
+      </div>
+
+
+      <div
+        class="linha"
+        *ngFor="let funcionario of funcionarios"
+      >
+
+        <span class="nome">
+          <i class="bi bi-person-circle"></i>
+          {{ funcionario.nome }}
+        </span>
+
+        <span>
+          {{ funcionario.cargo }}
+        </span>
+
+        <span>
+          {{ funcionario.setor }}
+        </span>
+
+        <span class="salario">
+          R$ {{ funcionario.salario | number:'1.2-2' }}
+        </span>
+
+        <button
+          class="btn-excluir"
+          (click)="excluirFuncionario(funcionario.id)"
+        >
+          <i class="bi bi-trash"></i>
+        </button>
+
+      </div>
+
+
+      <div
+        class="vazio"
+        *ngIf="funcionarios.length === 0"
+      >
+        <i class="bi bi-people"></i>
+        <p>Nenhum funcionário cadastrado.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

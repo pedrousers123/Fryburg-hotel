@@ -1,1 +1,194 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+
+  <div class="dashboard-header">
+    <div>
+      <h1>Dashboard</h1>
+      <p>Visão geral do Fryburg Hotel</p>
+    </div>
+
+    <a routerLink="/home" class="btn btn-outline-dark">
+      Voltar para o site
+    </a>
+  </div>
+
+  <div class="row g-4">
+
+    <div class="col-md-6 col-xl-3">
+      <div class="card-info">
+        <div>
+          <span>Reservas</span>
+          <h2>{{ reservas }}</h2>
+          <small>Reservas ativas</small>
+        </div>
+        <div class="icon">📅</div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <div class="card-info">
+        <div>
+          <span>Ocupação</span>
+          <h2>{{ ocupacao }}%</h2>
+          <small>Taxa atual</small>
+        </div>
+        <div class="icon">🏨</div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <div class="card-info">
+        <div>
+          <span>Faturamento</span>
+          <h2>R$ {{ faturamento | number:'1.2-2' }}</h2>
+          <small>Receita acumulada</small>
+        </div>
+        <div class="icon">💰</div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <div class="card-info">
+        <div>
+          <span>Lucro</span>
+          <h2>R$ {{ lucro | number:'1.2-2' }}</h2>
+          <small>Resultado atual</small>
+        </div>
+        <div class="icon">📈</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row g-4 mt-1">
+
+    <div class="col-lg-7">
+
+      <div class="panel">
+        <div class="panel-title">
+          <div>
+            <h3>Ocupação do hotel</h3>
+            <p>Distribuição dos quartos</p>
+          </div>
+        </div>
+
+        <div class="occupancy">
+
+          <div class="occupancy-number">
+            <strong>{{ ocupacao }}%</strong>
+            <span>ocupação</span>
+          </div>
+
+          <div class="progress-area">
+
+            <div class="progress">
+              <div
+                class="progress-bar"
+                [style.width.%]="ocupacao">
+              </div>
+            </div>
+
+            <div class="room-info">
+              <span>
+                <strong>{{ quartosOcupados }}</strong>
+                ocupados
+              </span>
+
+              <span>
+                <strong>{{ quartosDisponiveis }}</strong>
+                disponíveis
+              </span>
+
+              <span>
+                <strong>{{ quartosManutencao }}</strong>
+                manutenção
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-lg-5">
+
+      <div class="panel">
+        <div class="panel-title">
+          <div>
+            <h3>Resumo da empresa</h3>
+            <p>Informações gerais</p>
+          </div>
+        </div>
+
+        <div class="summary">
+
+          <div class="summary-item">
+            <span>👥 Funcionários</span>
+            <strong>{{ funcionarios }}</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>🧳 Clientes</span>
+            <strong>{{ clientes }}</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>💸 Despesas</span>
+            <strong>R$ {{ despesas | number:'1.2-2' }}</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>💵 Faturamento</span>
+            <strong>R$ {{ faturamento | number:'1.2-2' }}</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="panel mt-4">
+
+    <div class="panel-title">
+      <div>
+        <h3>Indicadores do hotel</h3>
+        <p>Acompanhamento rápido da operação</p>
+      </div>
+    </div>
+
+    <div class="indicators">
+
+      <div class="indicator">
+        <span>Reservas</span>
+        <strong>{{ reservas }}</strong>
+        <small>este período</small>
+      </div>
+
+      <div class="indicator">
+        <span>Quartos ocupados</span>
+        <strong>{{ quartosOcupados }}</strong>
+        <small>de {{ quartosOcupados + quartosDisponiveis }} disponíveis</small>
+      </div>
+
+      <div class="indicator">
+        <span>Funcionários</span>
+        <strong>{{ funcionarios }}</strong>
+        <small>equipe atual</small>
+      </div>
+
+      <div class="indicator">
+        <span>Clientes</span>
+        <strong>{{ clientes }}</strong>
+        <small>hóspedes cadastrados</small>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

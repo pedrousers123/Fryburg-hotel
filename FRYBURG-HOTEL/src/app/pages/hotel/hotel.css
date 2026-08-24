@@ -1,0 +1,168 @@
+.hotel-navbar {
+  background: #25211e;
+  padding: 15px 0;
+}
+
+.hotel-hero {
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hotel-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: end;
+  padding-bottom: 50px;
+  color: white;
+  background: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, 0.8)
+  );
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.stars {
+  color: #e2b36d;
+  letter-spacing: 4px;
+}
+
+.hero-content p {
+  margin: 0;
+}
+
+main h2 {
+  color: #2c2825;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.description {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.feature {
+  background: #f8f6f2;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.feature i {
+  font-size: 25px;
+  color: #9b7350;
+}
+
+.menu-card {
+  background: #f8f6f2;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.menu-card div {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu-card div:last-child {
+  border-bottom: none;
+}
+
+.menu-card span {
+  color: #777;
+}
+
+.reservation-card {
+  position: sticky;
+  top: 100px;
+  padding: 30px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.reservation-card h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #9b7350;
+}
+
+.reservation-card h3 small {
+  font-size: 1rem;
+  color: #777;
+  font-weight: normal;
+}
+
+.small-text {
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.price-line {
+  display: flex;
+  justify-content: space-between;
+  color: #777;
+}
+
+.price-line span:first-child {
+  color: #c49a6c;
+}
+
+.reservation-card label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.btn-primary {
+  background: #9b7350;
+  border-color: #9b7350;
+}
+
+.btn-primary:hover {
+  background: #795638;
+  border-color: #795638;
+}
+
+@media (max-width: 768px) {
+  .hotel-hero {
+    height: 400px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .reservation-card {
+    position: static;
+  }
+}
