@@ -1,409 +1,360 @@
-<nav class="navbar navbar-dark">
-  <div class="container">
+<div class="admin-page">
 
-    <a class="navbar-brand" routerLink="/admin">
-      <i class="bi bi-buildings"></i>
-      Fryburg Hotel
-    </a>
+  <!-- CABEÇALHO -->
+
+  <header class="admin-header">
+
+    <div>
+      <span class="subtitulo">FRYBURG HOTEL</span>
+
+      <h1>Painel Administrativo</h1>
+
+      <p>
+        Gerencie as principais áreas do hotel em um só lugar.
+      </p>
+    </div>
 
     <a
-      class="btn btn-outline-light"
       routerLink="/home"
+      class="btn-cliente"
     >
       <i class="bi bi-house"></i>
       Visão do cliente
     </a>
 
-  </div>
-</nav>
-
-
-<div class="container py-5">
-
-  <div class="dashboard-header">
-
-    <div>
-      <p>ÁREA ADMINISTRATIVA</p>
-
-      <h1>
-        Dashboard
-      </h1>
-
-      <span>
-        Visão geral do Fryburg Hotel
-      </span>
-    </div>
-
-  </div>
+  </header>
 
 
   <!-- RESUMO -->
 
-  <div class="row g-4 mt-3">
+  <section class="resumo">
 
-    <div class="col-md-6 col-lg-3">
+    <div class="resumo-card">
 
-      <div class="card-dashboard">
-
+      <div class="resumo-icone">
         <i class="bi bi-calendar-check"></i>
+      </div>
 
+      <div>
         <span>Reservas</span>
-
-        <strong>
-          {{ reservas }}
-        </strong>
-
+        <strong>24</strong>
+        <small>reservas ativas</small>
       </div>
 
     </div>
 
 
-    <div class="col-md-6 col-lg-3">
+    <div class="resumo-card">
 
-      <div class="card-dashboard">
-
+      <div class="resumo-icone">
         <i class="bi bi-door-open"></i>
+      </div>
 
-        <span>Quartos ocupados</span>
-
-        <strong>
-          {{ ocupados }}/{{ quartos }}
-        </strong>
-
+      <div>
+        <span>Ocupação</span>
+        <strong>72%</strong>
+        <small>taxa atual</small>
       </div>
 
     </div>
 
 
-    <div class="col-md-6 col-lg-3">
+    <div class="resumo-card">
 
-      <div class="card-dashboard">
+      <div class="resumo-icone">
+        <i class="bi bi-people"></i>
+      </div>
 
-        <i class="bi bi-graph-up"></i>
-
-        <span>Taxa de ocupação</span>
-
-        <strong>
-          {{ taxaOcupacao }}%
-        </strong>
-
+      <div>
+        <span>Funcionários</span>
+        <strong>14</strong>
+        <small>equipe atual</small>
       </div>
 
     </div>
 
 
-    <div class="col-md-6 col-lg-3">
+    <div class="resumo-card">
 
-      <div class="card-dashboard">
-
+      <div class="resumo-icone">
         <i class="bi bi-cash-stack"></i>
+      </div>
 
+      <div>
         <span>Faturamento</span>
-
-        <strong>
-          R$ {{ faturamento }}
-        </strong>
-
+        <strong>R$ 18.540</strong>
+        <small>receita atual</small>
       </div>
 
     </div>
 
-  </div>
-
-
-  <!-- FINANCEIRO -->
-
-  <div class="row g-4 mt-4">
-
-    <div class="col-lg-7">
-
-      <div class="dashboard-box">
-
-        <h2>
-          Resumo financeiro
-        </h2>
-
-        <p>
-          Situação financeira atual do hotel.
-        </p>
-
-
-        <div class="finance-item">
-
-          <span>
-            Faturamento
-          </span>
-
-          <strong class="entrada">
-            R$ {{ faturamento }}
-          </strong>
-
-        </div>
-
-
-        <div class="finance-item">
-
-          <span>
-            Gastos
-          </span>
-
-          <strong class="saida">
-            R$ {{ gastos }}
-          </strong>
-
-        </div>
-
-
-        <hr>
-
-
-        <div class="finance-item total">
-
-          <span>
-            Resultado
-          </span>
-
-          <strong>
-            R$ {{ lucro }}
-          </strong>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- OCUPAÇÃO -->
-
-    <div class="col-lg-5">
-
-      <div class="dashboard-box">
-
-        <h2>
-          Ocupação
-        </h2>
-
-        <p>
-          Ocupação atual dos quartos.
-        </p>
-
-
-        <div class="ocupacao">
-
-          <strong>
-            {{ taxaOcupacao }}%
-          </strong>
-
-          <span>
-            dos quartos ocupados
-          </span>
-
-        </div>
-
-
-        <div class="progress">
-
-          <div
-            class="progress-bar"
-            [style.width.%]="taxaOcupacao"
-          >
-          </div>
-
-        </div>
-
-
-        <div class="ocupacao-info">
-
-          <span>
-            {{ ocupados }} ocupados
-          </span>
-
-          <span>
-            {{ quartos - ocupados }} disponíveis
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
+  </section>
 
 
   <!-- SETORES -->
 
-  <div class="mt-5">
+  <section class="setores">
 
-    <h2 class="section-title">
-      Setores do hotel
-    </h2>
+    <div class="titulo-secao">
 
-    <p class="section-text">
-      Acesse as áreas administrativas do hotel.
-    </p>
+      <div>
+        <span>GERENCIAMENTO</span>
+
+        <h2>Setores do hotel</h2>
+
+        <p>
+          Escolha uma área para administrar as informações.
+        </p>
+      </div>
+
+    </div>
 
 
-    <div class="row g-4 mt-2">
+    <div class="setores-grid">
 
 
-      <div class="col-md-6 col-lg-4">
+      <!-- FUNCIONÁRIOS -->
 
-        <a
-          routerLink="/admin/funcionarios"
-          class="sector-card"
-        >
+      <a
+        routerLink="/admin/funcionarios"
+        class="setor-card"
+      >
 
+        <div class="card-icone">
           <i class="bi bi-people"></i>
+        </div>
 
-          <h3>
-            Funcionários
-          </h3>
+        <h3>Funcionários</h3>
 
-          <p>
-            Funcionários, cargos e salários.
-          </p>
+        <p>
+          Controle da equipe, cargos, setores e salários.
+        </p>
 
-          <span>
-            Acessar →
-          </span>
+        <span>
+          Acessar
+          <i class="bi bi-arrow-right"></i>
+        </span>
 
-        </a>
-
-      </div>
+      </a>
 
 
-      <div class="col-md-6 col-lg-4">
+      <!-- DESPESAS -->
 
-        <a
-          routerLink="/admin/alimentacao"
-          class="sector-card"
-        >
+      <a
+        routerLink="/admin/despesas"
+        class="setor-card"
+      >
 
+        <div class="card-icone">
+          <i class="bi bi-cash-stack"></i>
+        </div>
+
+        <h3>Despesas</h3>
+
+        <p>
+          Controle dos gastos e despesas gerais do hotel.
+        </p>
+
+        <span>
+          Acessar
+          <i class="bi bi-arrow-right"></i>
+        </span>
+
+      </a>
+
+
+      <!-- RESTAURANTE -->
+
+      <a
+        routerLink="/admin/restaurante"
+        class="setor-card"
+      >
+
+        <div class="card-icone">
           <i class="bi bi-cup-hot"></i>
+        </div>
 
-          <h3>
-            Alimentação
-          </h3>
+        <h3>Alimentação</h3>
 
-          <p>
-            Restaurante, cardápio e gastos.
-          </p>
+        <p>
+          Restaurante, cardápio, vendas e custos da cozinha.
+        </p>
 
-          <span>
-            Acessar →
-          </span>
+        <span>
+          Acessar
+          <i class="bi bi-arrow-right"></i>
+        </span>
 
-        </a>
-
-      </div>
+      </a>
 
 
-      <div class="col-md-6 col-lg-4">
+      <!-- OPERAÇÃO -->
 
-        <a
-          routerLink="/admin/operacao"
-          class="sector-card"
-        >
+      <a
+        routerLink="/admin/operacao"
+        class="setor-card"
+      >
 
-          <i class="bi bi-lightning"></i>
+        <div class="card-icone">
+          <i class="bi bi-lightning-charge"></i>
+        </div>
 
-          <h3>
-            Operação
-          </h3>
+        <h3>Operação</h3>
 
-          <p>
-            Água, luz, gás, internet e lavanderia.
-          </p>
+        <p>
+          Água, luz, gás, internet e lavanderia.
+        </p>
 
-          <span>
-            Acessar →
-          </span>
+        <span>
+          Acessar
+          <i class="bi bi-arrow-right"></i>
+        </span>
 
-        </a>
-
-      </div>
+      </a>
 
 
-      <div class="col-md-6 col-lg-4">
+      <!-- MANUTENÇÃO -->
 
-        <a
-          routerLink="/admin/manutencao"
-          class="sector-card"
-        >
+      <a
+        routerLink="/admin/manutencao"
+        class="setor-card"
+      >
 
+        <div class="card-icone">
           <i class="bi bi-tools"></i>
+        </div>
 
-          <h3>
-            Manutenção
-          </h3>
+        <h3>Manutenção</h3>
 
-          <p>
-            Piscina, elevadores, ar-condicionado e jardinagem.
-          </p>
+        <p>
+          Controle de reparos, equipamentos e serviços.
+        </p>
 
-          <span>
-            Acessar →
-          </span>
+        <span>
+          Acessar
+          <i class="bi bi-arrow-right"></i>
+        </span>
 
-        </a>
-
-      </div>
+      </a>
 
 
-      <div class="col-md-6 col-lg-4">
+      <!-- MARKETING -->
 
-        <a
-          routerLink="/admin/marketing"
-          class="sector-card"
-        >
+      <a
+        routerLink="/admin/marketing"
+        class="setor-card"
+      >
 
+        <div class="card-icone">
           <i class="bi bi-megaphone"></i>
+        </div>
 
-          <h3>
-            Marketing
-          </h3>
+        <h3>Marketing</h3>
 
-          <p>
-            Anúncios, fotos, vídeos e divulgação.
-          </p>
+        <p>
+          Anúncios, campanhas, fotos e divulgação.
+        </p>
 
-          <span>
-            Acessar →
-          </span>
+        <span>
+          Acessar
+          <i class="bi bi-arrow-right"></i>
+        </span>
 
-        </a>
-
-      </div>
+      </a>
 
 
-      <div class="col-md-6 col-lg-4">
+      <!-- RESERVAS -->
 
-        <a
-          routerLink="/home"
-          class="sector-card voltar"
-        >
+      <a
+        routerLink="/reservas"
+        class="setor-card"
+      >
 
-          <i class="bi bi-arrow-left"></i>
+        <div class="card-icone">
+          <i class="bi bi-calendar-check"></i>
+        </div>
 
-          <h3>
-            Visão do cliente
-          </h3>
+        <h3>Reservas</h3>
 
-          <p>
-            Voltar para a página principal do hotel.
-          </p>
+        <p>
+          Consulte e acompanhe as reservas realizadas.
+        </p>
 
-          <span>
-            Voltar →
-          </span>
+        <span>
+          Acessar
+          <i class="bi bi-arrow-right"></i>
+        </span>
 
-        </a>
+      </a>
+
+
+      <!-- DASHBOARD -->
+
+      <a
+        routerLink="/admin/dashboard"
+        class="setor-card destaque"
+      >
+
+        <div class="card-icone">
+          <i class="bi bi-bar-chart-line"></i>
+        </div>
+
+        <h3>Dashboard</h3>
+
+        <p>
+          Veja os principais indicadores e resultados do hotel.
+        </p>
+
+        <span>
+          Acessar
+          <i class="bi bi-arrow-right"></i>
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- INFORMAÇÕES -->
+
+  <section class="informacoes">
+
+    <div class="info-box">
+
+      <i class="bi bi-info-circle"></i>
+
+      <div>
+
+        <h3>Visão administrativa</h3>
+
+        <p>
+          Utilize os setores acima para acompanhar as atividades,
+          despesas e resultados do Fryburg Hotel.
+        </p>
 
       </div>
 
     </div>
+
+  </section>
+
+
+  <!-- VOLTAR PARA CLIENTE -->
+
+  <div class="final">
+
+    <a
+      routerLink="/home"
+      class="btn-final"
+    >
+
+      <i class="bi bi-arrow-left"></i>
+
+      Voltar para a página principal
+
+    </a>
 
   </div>
 

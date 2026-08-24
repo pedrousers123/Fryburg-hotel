@@ -1,191 +1,187 @@
 <div class="dashboard">
 
-  <div class="dashboard-header">
+  <div class="dashboard-top">
     <div>
-      <h1>Dashboard</h1>
+      <h1>Painel de controle</h1>
       <p>Visão geral do Fryburg Hotel</p>
     </div>
 
-    <a routerLink="/home" class="btn btn-outline-dark">
-      Voltar para o site
+    <a routerLink="/home" class="btn-site">
+      <i class="bi bi-house"></i>
+      Visão do cliente
     </a>
   </div>
 
-  <div class="row g-4">
+  <div class="cards">
 
-    <div class="col-md-6 col-xl-3">
-      <div class="card-info">
-        <div>
-          <span>Reservas</span>
-          <h2>{{ reservas }}</h2>
-          <small>Reservas ativas</small>
-        </div>
-        <div class="icon">📅</div>
-      </div>
-    </div>
-
-    <div class="col-md-6 col-xl-3">
-      <div class="card-info">
-        <div>
-          <span>Ocupação</span>
-          <h2>{{ ocupacao }}%</h2>
-          <small>Taxa atual</small>
-        </div>
-        <div class="icon">🏨</div>
-      </div>
-    </div>
-
-    <div class="col-md-6 col-xl-3">
-      <div class="card-info">
-        <div>
-          <span>Faturamento</span>
-          <h2>R$ {{ faturamento | number:'1.2-2' }}</h2>
-          <small>Receita acumulada</small>
-        </div>
-        <div class="icon">💰</div>
-      </div>
-    </div>
-
-    <div class="col-md-6 col-xl-3">
-      <div class="card-info">
-        <div>
-          <span>Lucro</span>
-          <h2>R$ {{ lucro | number:'1.2-2' }}</h2>
-          <small>Resultado atual</small>
-        </div>
-        <div class="icon">📈</div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="row g-4 mt-1">
-
-    <div class="col-lg-7">
-
-      <div class="panel">
-        <div class="panel-title">
-          <div>
-            <h3>Ocupação do hotel</h3>
-            <p>Distribuição dos quartos</p>
-          </div>
-        </div>
-
-        <div class="occupancy">
-
-          <div class="occupancy-number">
-            <strong>{{ ocupacao }}%</strong>
-            <span>ocupação</span>
-          </div>
-
-          <div class="progress-area">
-
-            <div class="progress">
-              <div
-                class="progress-bar"
-                [style.width.%]="ocupacao">
-              </div>
-            </div>
-
-            <div class="room-info">
-              <span>
-                <strong>{{ quartosOcupados }}</strong>
-                ocupados
-              </span>
-
-              <span>
-                <strong>{{ quartosDisponiveis }}</strong>
-                disponíveis
-              </span>
-
-              <span>
-                <strong>{{ quartosManutencao }}</strong>
-                manutenção
-              </span>
-            </div>
-
-          </div>
-
-        </div>
-
+    <div class="card-info">
+      <div class="icon">
+        <i class="bi bi-building"></i>
       </div>
 
-    </div>
-
-    <div class="col-lg-5">
-
-      <div class="panel">
-        <div class="panel-title">
-          <div>
-            <h3>Resumo da empresa</h3>
-            <p>Informações gerais</p>
-          </div>
-        </div>
-
-        <div class="summary">
-
-          <div class="summary-item">
-            <span>👥 Funcionários</span>
-            <strong>{{ funcionarios }}</strong>
-          </div>
-
-          <div class="summary-item">
-            <span>🧳 Clientes</span>
-            <strong>{{ clientes }}</strong>
-          </div>
-
-          <div class="summary-item">
-            <span>💸 Despesas</span>
-            <strong>R$ {{ despesas | number:'1.2-2' }}</strong>
-          </div>
-
-          <div class="summary-item">
-            <span>💵 Faturamento</span>
-            <strong>R$ {{ faturamento | number:'1.2-2' }}</strong>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="panel mt-4">
-
-    <div class="panel-title">
       <div>
-        <h3>Indicadores do hotel</h3>
-        <p>Acompanhamento rápido da operação</p>
+        <span>Quartos ocupados</span>
+        <strong>{{ quartosOcupados }}/{{ totalQuartos }}</strong>
+        <small>{{ ocupacao }}% de ocupação</small>
       </div>
     </div>
 
-    <div class="indicators">
-
-      <div class="indicator">
-        <span>Reservas</span>
-        <strong>{{ reservas }}</strong>
-        <small>este período</small>
+    <div class="card-info">
+      <div class="icon">
+        <i class="bi bi-calendar-check"></i>
       </div>
 
-      <div class="indicator">
-        <span>Quartos ocupados</span>
-        <strong>{{ quartosOcupados }}</strong>
-        <small>de {{ quartosOcupados + quartosDisponiveis }} disponíveis</small>
+      <div>
+        <span>Reservas no mês</span>
+        <strong>{{ reservasMes }}</strong>
+        <small>{{ reservasHoje }} para hoje</small>
+      </div>
+    </div>
+
+    <div class="card-info">
+      <div class="icon">
+        <i class="bi bi-cash-stack"></i>
       </div>
 
-      <div class="indicator">
+      <div>
+        <span>Faturamento</span>
+        <strong>R$ {{ faturamento | number:'1.2-2' }}</strong>
+        <small>Receita acumulada</small>
+      </div>
+    </div>
+
+    <div class="card-info">
+      <div class="icon">
+        <i class="bi bi-people"></i>
+      </div>
+
+      <div>
         <span>Funcionários</span>
         <strong>{{ funcionarios }}</strong>
-        <small>equipe atual</small>
+        <small>Equipe atual</small>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="content-grid">
+
+    <div class="panel">
+      <div class="panel-title">
+        <div>
+          <h2>Ocupação do hotel</h2>
+          <p>Situação atual dos quartos</p>
+        </div>
+
+        <span class="percentage">{{ ocupacao }}%</span>
       </div>
 
-      <div class="indicator">
-        <span>Clientes</span>
-        <strong>{{ clientes }}</strong>
-        <small>hóspedes cadastrados</small>
+      <div class="progress-area">
+
+        <div class="progress">
+          <div
+            class="progress-bar"
+            [style.width.%]="ocupacao">
+          </div>
+        </div>
+
+        <div class="rooms">
+          <div>
+            <span class="dot occupied"></span>
+            Ocupados
+            <strong>{{ quartosOcupados }}</strong>
+          </div>
+
+          <div>
+            <span class="dot available"></span>
+            Disponíveis
+            <strong>{{ quartosDisponiveis }}</strong>
+          </div>
+        </div>
+
       </div>
+    </div>
+
+    <div class="panel financial">
+
+      <div class="panel-title">
+        <div>
+          <h2>Resumo financeiro</h2>
+          <p>Movimentação atual</p>
+        </div>
+
+        <i class="bi bi-graph-up-arrow"></i>
+      </div>
+
+      <div class="finance-item">
+        <span>Faturamento</span>
+        <strong class="positive">
+          R$ {{ faturamento | number:'1.2-2' }}
+        </strong>
+      </div>
+
+      <div class="finance-item">
+        <span>Despesas</span>
+        <strong class="negative">
+          R$ {{ despesas | number:'1.2-2' }}
+        </strong>
+      </div>
+
+      <hr>
+
+      <div class="finance-item total">
+        <span>Resultado</span>
+        <strong>
+          R$ {{ lucro | number:'1.2-2' }}
+        </strong>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="quick-section">
+
+    <h2>Acesso rápido</h2>
+    <p>Gerencie os principais setores do hotel</p>
+
+    <div class="quick-grid">
+
+      <a routerLink="/admin/funcionarios" class="quick-card">
+        <i class="bi bi-people"></i>
+        <span>Funcionários</span>
+        <small>Equipe e salários</small>
+      </a>
+
+      <a routerLink="/admin/despesas" class="quick-card">
+        <i class="bi bi-receipt"></i>
+        <span>Despesas</span>
+        <small>Contas e gastos</small>
+      </a>
+
+      <a routerLink="/admin/manutencao" class="quick-card">
+        <i class="bi bi-tools"></i>
+        <span>Manutenção</span>
+        <small>Equipamentos e serviços</small>
+      </a>
+
+      <a routerLink="/admin/restaurante" class="quick-card">
+        <i class="bi bi-cup-hot"></i>
+        <span>Restaurante</span>
+        <small>Vendas e alimentação</small>
+      </a>
+
+      <a routerLink="/admin/marketing" class="quick-card">
+        <i class="bi bi-megaphone"></i>
+        <span>Marketing</span>
+        <small>Anúncios e divulgação</small>
+      </a>
+
+      <a routerLink="/reservas" class="quick-card">
+        <i class="bi bi-calendar2-check"></i>
+        <span>Reservas</span>
+        <small>Consultar reservas</small>
+      </a>
 
     </div>
 

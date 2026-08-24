@@ -10,17 +10,19 @@ import { CommonModule } from '@angular/common';
 })
 export class Dashboard {
 
-  reservas = 24;
-  ocupacao = 72;
-  faturamento = 18540;
+  totalQuartos = 30;
+  quartosOcupados = 22;
+  quartosDisponiveis = 8;
+
+  reservasHoje = 6;
+  reservasMes = 48;
+
+  faturamento = 18450;
   despesas = 9230;
 
-  quartosOcupados = 18;
-  quartosDisponiveis = 7;
-  quartosManutencao = 2;
-
   funcionarios = 14;
-  clientes = 86;
+
+  ocupacao = Math.round((this.quartosOcupados / this.totalQuartos) * 100);
 
   get lucro() {
     return this.faturamento - this.despesas;

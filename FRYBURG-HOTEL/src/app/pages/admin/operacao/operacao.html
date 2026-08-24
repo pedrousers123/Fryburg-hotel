@@ -1,0 +1,166 @@
+<div class="operacao">
+
+  <div class="topo">
+    <div>
+      <h1>Custos de Operação</h1>
+      <p>Controle dos principais gastos para manter o hotel funcionando.</p>
+    </div>
+
+    <a routerLink="/admin/dashboard" class="btn-voltar">
+      <i class="bi bi-arrow-left"></i>
+      Dashboard
+    </a>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="icone">
+        <i class="bi bi-lightning-charge"></i>
+      </div>
+
+      <div>
+        <span>Energia elétrica</span>
+        <strong>R$ {{ contaLuz | number:'1.2-2' }}</strong>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icone">
+        <i class="bi bi-droplet"></i>
+      </div>
+
+      <div>
+        <span>Água</span>
+        <strong>R$ {{ contaAgua | number:'1.2-2' }}</strong>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icone">
+        <i class="bi bi-fire"></i>
+      </div>
+
+      <div>
+        <span>Gás</span>
+        <strong>R$ {{ contaGas | number:'1.2-2' }}</strong>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icone">
+        <i class="bi bi-wifi"></i>
+      </div>
+
+      <div>
+        <span>Internet</span>
+        <strong>R$ {{ internet | number:'1.2-2' }}</strong>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="conteudo">
+
+    <div class="painel">
+
+      <h2>Despesas operacionais</h2>
+      <p class="descricao">
+        Gastos necessários para o funcionamento diário do Fryburg Hotel.
+      </p>
+
+      <div class="linha">
+        <span>
+          <i class="bi bi-lightning"></i>
+          Energia elétrica
+        </span>
+
+        <strong>
+          R$ {{ contaLuz | number:'1.2-2' }}
+        </strong>
+      </div>
+
+      <div class="linha">
+        <span>
+          <i class="bi bi-droplet"></i>
+          Água
+        </span>
+
+        <strong>
+          R$ {{ contaAgua | number:'1.2-2' }}
+        </strong>
+      </div>
+
+      <div class="linha">
+        <span>
+          <i class="bi bi-fire"></i>
+          Gás
+        </span>
+
+        <strong>
+          R$ {{ contaGas | number:'1.2-2' }}
+        </strong>
+      </div>
+
+      <div class="linha">
+        <span>
+          <i class="bi bi-wifi"></i>
+          Internet
+        </span>
+
+        <strong>
+          R$ {{ internet | number:'1.2-2' }}
+        </strong>
+      </div>
+
+      <div class="linha">
+        <span>
+          <i class="bi bi-basket"></i>
+          Lavanderia
+        </span>
+
+        <strong>
+          R$ {{ lavanderia | number:'1.2-2' }}
+        </strong>
+      </div>
+
+      <hr>
+
+      <div class="total">
+        <span>Total de operação</span>
+
+        <strong>
+          R$ {{ totalOperacao | number:'1.2-2' }}
+        </strong>
+      </div>
+
+    </div>
+
+    <div class="painel informacao">
+
+      <i class="bi bi-building"></i>
+
+      <h2>Operação do hotel</h2>
+
+      <p>
+        Nesta área o administrador consegue acompanhar os principais
+        custos necessários para manter o hotel funcionando.
+      </p>
+
+      <div class="info">
+        <strong>5</strong>
+        <span>categorias de custos</span>
+      </div>
+
+      <div class="info">
+        <strong>
+          R$ {{ totalOperacao | number:'1.2-2' }}
+        </strong>
+        <span>custo operacional</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,1 +1,60 @@
-<p>restaurante works!</p>
+<div class="restaurante">
+
+  <div class="cabecalho">
+    <div>
+      <h1>Restaurante</h1>
+      <p>Acompanhe os pedidos e o movimento do restaurante.</p>
+    </div>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <span>Pedidos hoje</span>
+      <strong>{{ pedidos }}</strong>
+      <p>Total de pedidos</p>
+    </div>
+
+    <div class="card">
+      <span>Preparando</span>
+      <strong>{{ pedidosPreparando }}</strong>
+      <p>Pedidos em preparo</p>
+    </div>
+
+    <div class="card">
+      <span>Prontos</span>
+      <strong>{{ pedidosProntos }}</strong>
+      <p>Aguardando entrega</p>
+    </div>
+
+    <div class="card">
+      <span>Entregues</span>
+      <strong>{{ pedidosEntregues }}</strong>
+      <p>Pedidos finalizados</p>
+    </div>
+
+  </div>
+
+  <div class="painel">
+
+    <h2>Movimento do restaurante</h2>
+
+    <div class="tabela">
+
+      <div class="linha titulo">
+        <span>Serviço</span>
+        <span>Quantidade</span>
+        <span>Valor médio</span>
+      </div>
+
+      <div class="linha" *ngFor="let item of itens">
+        <span>{{ item.nome }}</span>
+        <span>{{ item.quantidade }}</span>
+        <span>R$ {{ item.valor }},00</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
