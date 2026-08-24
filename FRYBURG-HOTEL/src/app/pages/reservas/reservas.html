@@ -1,4 +1,5 @@
 <nav class="navbar navbar-dark">
+
   <div class="container">
 
     <a
@@ -9,6 +10,7 @@
       Fryburg Hotel
     </a>
 
+
     <a
       class="btn btn-outline-light"
       routerLink="/home"
@@ -17,6 +19,7 @@
     </a>
 
   </div>
+
 </nav>
 
 
@@ -25,6 +28,7 @@
   @if (hotel) {
 
     <div class="reservation-page">
+
 
       <div class="reservation-header">
 
@@ -52,6 +56,7 @@
 
 
         <div class="row g-3">
+
 
           <div class="col-12">
 
@@ -105,6 +110,7 @@
           class="btn btn-primary mt-4"
           (click)="calcularReserva()"
         >
+          <i class="bi bi-calculator"></i>
           Calcular valor
         </button>
 
@@ -113,7 +119,9 @@
 
           <div class="total-box mt-4">
 
+
             <div>
+
               <span>
                 Quantidade de noites
               </span>
@@ -121,10 +129,12 @@
               <strong>
                 {{ noites }}
               </strong>
+
             </div>
 
 
             <div>
+
               <span>
                 Valor da diária
               </span>
@@ -132,6 +142,7 @@
               <strong>
                 R$ {{ hotel.precoDiaria }}
               </strong>
+
             </div>
 
 
@@ -150,6 +161,7 @@
 
             </div>
 
+
           </div>
 
         }
@@ -162,7 +174,9 @@
             [class.alert-success]="sucesso"
             [class.alert-danger]="!sucesso"
           >
+
             {{ mensagem }}
+
           </div>
 
         }
@@ -172,9 +186,13 @@
           class="btn btn-success w-100 mt-3"
           (click)="reservar()"
         >
+
           <i class="bi bi-calendar-check"></i>
+
           Confirmar reserva
+
         </button>
+
 
       </div>
 
@@ -182,11 +200,18 @@
 
   } @else {
 
+
     <div class="text-center py-5">
 
-      <h2>
-        Hotel não encontrado
-      </h2>
+      <div class="mb-3">
+        <i class="bi bi-exclamation-circle fs-1"></i>
+      </div>
+
+      <h2>Hotel não encontrado</h2>
+
+      <p class="text-muted">
+        Escolha um hotel na página inicial para fazer uma reserva.
+      </p>
 
       <a
         routerLink="/home"

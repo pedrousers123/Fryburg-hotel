@@ -1,166 +1,348 @@
 <div class="operacao">
 
-  <div class="topo">
+  <header class="topo">
+
     <div>
-      <h1>Custos de Operação</h1>
-      <p>Controle dos principais gastos para manter o hotel funcionando.</p>
-    </div>
 
-    <a routerLink="/admin/dashboard" class="btn-voltar">
-      <i class="bi bi-arrow-left"></i>
-      Dashboard
-    </a>
-  </div>
+      <span>FRYBURG HOTEL</span>
 
-  <div class="cards">
-
-    <div class="card">
-      <div class="icone">
-        <i class="bi bi-lightning-charge"></i>
-      </div>
-
-      <div>
-        <span>Energia elétrica</span>
-        <strong>R$ {{ contaLuz | number:'1.2-2' }}</strong>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icone">
-        <i class="bi bi-droplet"></i>
-      </div>
-
-      <div>
-        <span>Água</span>
-        <strong>R$ {{ contaAgua | number:'1.2-2' }}</strong>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icone">
-        <i class="bi bi-fire"></i>
-      </div>
-
-      <div>
-        <span>Gás</span>
-        <strong>R$ {{ contaGas | number:'1.2-2' }}</strong>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icone">
-        <i class="bi bi-wifi"></i>
-      </div>
-
-      <div>
-        <span>Internet</span>
-        <strong>R$ {{ internet | number:'1.2-2' }}</strong>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="conteudo">
-
-    <div class="painel">
-
-      <h2>Despesas operacionais</h2>
-      <p class="descricao">
-        Gastos necessários para o funcionamento diário do Fryburg Hotel.
-      </p>
-
-      <div class="linha">
-        <span>
-          <i class="bi bi-lightning"></i>
-          Energia elétrica
-        </span>
-
-        <strong>
-          R$ {{ contaLuz | number:'1.2-2' }}
-        </strong>
-      </div>
-
-      <div class="linha">
-        <span>
-          <i class="bi bi-droplet"></i>
-          Água
-        </span>
-
-        <strong>
-          R$ {{ contaAgua | number:'1.2-2' }}
-        </strong>
-      </div>
-
-      <div class="linha">
-        <span>
-          <i class="bi bi-fire"></i>
-          Gás
-        </span>
-
-        <strong>
-          R$ {{ contaGas | number:'1.2-2' }}
-        </strong>
-      </div>
-
-      <div class="linha">
-        <span>
-          <i class="bi bi-wifi"></i>
-          Internet
-        </span>
-
-        <strong>
-          R$ {{ internet | number:'1.2-2' }}
-        </strong>
-      </div>
-
-      <div class="linha">
-        <span>
-          <i class="bi bi-basket"></i>
-          Lavanderia
-        </span>
-
-        <strong>
-          R$ {{ lavanderia | number:'1.2-2' }}
-        </strong>
-      </div>
-
-      <hr>
-
-      <div class="total">
-        <span>Total de operação</span>
-
-        <strong>
-          R$ {{ totalOperacao | number:'1.2-2' }}
-        </strong>
-      </div>
-
-    </div>
-
-    <div class="painel informacao">
-
-      <i class="bi bi-building"></i>
-
-      <h2>Operação do hotel</h2>
+      <h1>Operação</h1>
 
       <p>
-        Nesta área o administrador consegue acompanhar os principais
-        custos necessários para manter o hotel funcionando.
+        Controle dos principais custos operacionais do hotel.
       </p>
-
-      <div class="info">
-        <strong>5</strong>
-        <span>categorias de custos</span>
-      </div>
-
-      <div class="info">
-        <strong>
-          R$ {{ totalOperacao | number:'1.2-2' }}
-        </strong>
-        <span>custo operacional</span>
-      </div>
 
     </div>
 
-  </div>
+    <a routerLink="/admin" class="voltar">
+      <i class="bi bi-arrow-left"></i>
+      Voltar ao Painel Administrativo
+    </a>
+
+  </header>
+
+
+  <main>
+
+    <!-- RESUMO -->
+
+    <section class="resumo">
+
+      <div class="card destaque">
+
+        <div class="icone">
+          💰
+        </div>
+
+        <div>
+
+          <span>Custo operacional</span>
+
+          <strong>
+            R$ {{ totalOperacao | number:'1.2-2' }}
+          </strong>
+
+          <small>
+            total mensal
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icone">
+          ⚡
+        </div>
+
+        <div>
+
+          <span>Energia</span>
+
+          <strong>
+            R$ {{ contaLuz | number:'1.2-2' }}
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icone">
+          💧
+        </div>
+
+        <div>
+
+          <span>Água</span>
+
+          <strong>
+            R$ {{ contaAgua | number:'1.2-2' }}
+          </strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CUSTOS -->
+
+    <section class="painel">
+
+      <div class="titulo">
+
+        <span>CONTROLE DE GASTOS</span>
+
+        <h2>Custos da operação</h2>
+
+        <p>
+          Controle os principais serviços utilizados pelo hotel.
+        </p>
+
+      </div>
+
+
+      <div class="custos">
+
+
+        <!-- LUZ -->
+
+        <div class="custo">
+
+          <div class="custo-info">
+
+            <div class="icone">
+              ⚡
+            </div>
+
+            <div>
+
+              <h3>Energia elétrica</h3>
+
+              <p>
+                Conta de luz e consumo de energia.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="valor">
+
+            <label>Valor mensal</label>
+
+            <input
+              type="number"
+              [(ngModel)]="contaLuz"
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- ÁGUA -->
+
+        <div class="custo">
+
+          <div class="custo-info">
+
+            <div class="icone">
+              💧
+            </div>
+
+            <div>
+
+              <h3>Água</h3>
+
+              <p>
+                Consumo e abastecimento de água.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="valor">
+
+            <label>Valor mensal</label>
+
+            <input
+              type="number"
+              [(ngModel)]="contaAgua"
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- GÁS -->
+
+        <div class="custo">
+
+          <div class="custo-info">
+
+            <div class="icone">
+              🔥
+            </div>
+
+            <div>
+
+              <h3>Gás</h3>
+
+              <p>
+                Consumo de gás utilizado pelo hotel.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="valor">
+
+            <label>Valor mensal</label>
+
+            <input
+              type="number"
+              [(ngModel)]="contaGas"
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- INTERNET -->
+
+        <div class="custo">
+
+          <div class="custo-info">
+
+            <div class="icone">
+              🌐
+            </div>
+
+            <div>
+
+              <h3>Internet</h3>
+
+              <p>
+                Serviço de internet e comunicação.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="valor">
+
+            <label>Valor mensal</label>
+
+            <input
+              type="number"
+              [(ngModel)]="internet"
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- LAVANDERIA -->
+
+        <div class="custo">
+
+          <div class="custo-info">
+
+            <div class="icone">
+              🧺
+            </div>
+
+            <div>
+
+              <h3>Lavanderia</h3>
+
+              <p>
+                Lavagem de roupas e enxoval.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="valor">
+
+            <label>Valor mensal</label>
+
+            <input
+              type="number"
+              [(ngModel)]="lavanderia"
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- TOTAL -->
+
+      <div class="total-final">
+
+        <div>
+
+          <span>
+            TOTAL DOS CUSTOS OPERACIONAIS
+          </span>
+
+          <h2>
+            R$ {{ totalOperacao | number:'1.2-2' }}
+          </h2>
+
+        </div>
+
+        <div class="check">
+          ✓
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- INFORMAÇÃO -->
+
+    <section class="informacao">
+
+      <div>ℹ️</div>
+
+      <div>
+
+        <h3>Controle operacional</h3>
+
+        <p>
+          Acompanhe água, energia elétrica, gás,
+          internet e lavanderia para controlar os
+          custos do hotel.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
 
 </div>

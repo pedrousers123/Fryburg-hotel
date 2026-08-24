@@ -1,1 +1,343 @@
-<p>despesas works!ffffffffffffff</p>
+<div class="despesas">
+
+  <header class="topo">
+
+    <div>
+
+      <span>FRYBURG HOTEL</span>
+
+      <h1>Despesas</h1>
+
+      <p>
+        Controle dos gastos gerais do hotel.
+      </p>
+
+    </div>
+
+    <a
+      routerLink="/admin"
+      class="voltar"
+    >
+      ← Voltar
+    </a>
+
+  </header>
+
+
+  <main>
+
+    <!-- RESUMO -->
+
+    <section class="resumo">
+
+      <div class="resumo-card destaque">
+
+        <div class="icone">
+          💰
+        </div>
+
+        <div>
+
+          <span>Total de despesas</span>
+
+          <strong>
+            R$ {{ total | number:'1.2-2' }}
+          </strong>
+
+          <small>
+            Gastos cadastrados
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="resumo-card">
+
+        <div class="icone">
+          📋
+        </div>
+
+        <div>
+
+          <span>Despesas</span>
+
+          <strong>
+            {{ despesas.length }}
+          </strong>
+
+          <small>
+            itens cadastrados
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="resumo-card">
+
+        <div class="icone">
+          📊
+        </div>
+
+        <div>
+
+          <span>Controle</span>
+
+          <strong>
+            Ativo
+          </strong>
+
+          <small>
+            Gestão financeira
+          </small>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- NOVA DESPESA -->
+
+    <section class="cadastro">
+
+      <div class="titulo">
+
+        <span>NOVA DESPESA</span>
+
+        <h2>Adicionar gasto</h2>
+
+        <p>
+          Cadastre uma nova despesa do hotel.
+        </p>
+
+      </div>
+
+
+      <div class="formulario">
+
+        <div class="campo">
+
+          <label>
+            Descrição
+          </label>
+
+          <input
+            type="text"
+            [(ngModel)]="novaDespesa"
+            placeholder="Ex: Compra de materiais"
+          >
+
+        </div>
+
+
+        <div class="campo">
+
+          <label>
+            Categoria
+          </label>
+
+          <select
+            [(ngModel)]="novaCategoria"
+          >
+
+            <option value="Funcionários">
+              Funcionários
+            </option>
+
+            <option value="Operação">
+              Operação
+            </option>
+
+            <option value="Materiais">
+              Materiais
+            </option>
+
+            <option value="Serviços">
+              Serviços
+            </option>
+
+            <option value="Marketing">
+              Marketing
+            </option>
+
+            <option value="Outros">
+              Outros
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="campo">
+
+          <label>
+            Valor
+          </label>
+
+          <input
+            type="number"
+            [(ngModel)]="novoValor"
+            placeholder="0"
+          >
+
+        </div>
+
+
+        <button
+          (click)="adicionarDespesa()"
+        >
+
+          <i class="bi bi-plus-lg"></i>
+
+          Adicionar
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- LISTA -->
+
+    <section class="lista">
+
+      <div class="titulo">
+
+        <span>CONTROLE FINANCEIRO</span>
+
+        <h2>Despesas cadastradas</h2>
+
+      </div>
+
+
+      <div class="tabela">
+
+        <div class="tabela-header">
+
+          <span>Despesa</span>
+
+          <span>Categoria</span>
+
+          <span>Valor</span>
+
+          <span>Ação</span>
+
+        </div>
+
+
+        @for (despesa of despesas; track despesa.nome; let i = $index) {
+
+          <div class="linha">
+
+            <strong>
+              {{ despesa.nome }}
+            </strong>
+
+
+            <span class="categoria">
+              {{ despesa.categoria }}
+            </span>
+
+
+            <strong class="valor">
+              R$ {{ despesa.valor | number:'1.2-2' }}
+            </strong>
+
+
+            <button
+              class="excluir"
+              (click)="removerDespesa(i)"
+              title="Excluir"
+            >
+
+              <i class="bi bi-trash"></i>
+
+            </button>
+
+          </div>
+
+        }
+
+
+        @if (despesas.length === 0) {
+
+          <div class="vazio">
+
+            <i class="bi bi-receipt"></i>
+
+            <h3>
+              Nenhuma despesa cadastrada
+            </h3>
+
+            <p>
+              Adicione uma despesa acima.
+            </p>
+
+          </div>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <!-- TOTAL -->
+
+    <section class="total-final">
+
+      <div>
+
+        <span>
+          TOTAL GERAL
+        </span>
+
+        <h2>
+          R$ {{ total | number:'1.2-2' }}
+        </h2>
+
+      </div>
+
+
+      <div class="check">
+        ✓
+      </div>
+
+    </section>
+
+
+    <!-- INFORMAÇÃO -->
+
+    <section class="informacao">
+
+      <div class="info-icone">
+        ℹ️
+      </div>
+
+      <div>
+
+        <h3>
+          Controle de despesas
+        </h3>
+
+        <p>
+          Utilize esta área para acompanhar os gastos
+          gerais do Fryburg Hotel. Os custos específicos
+          de água, luz, gás, internet e lavanderia ficam
+          na área de Operação.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>

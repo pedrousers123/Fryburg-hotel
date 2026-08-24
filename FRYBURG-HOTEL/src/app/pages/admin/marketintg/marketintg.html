@@ -1,202 +1,351 @@
-<div class="pagina">
+<div class="marketing">
 
-  <div class="cabecalho">
+  <header class="topo">
 
     <div>
+
+      <span>FRYBURG HOTEL</span>
+
       <h1>Marketing</h1>
-      <p>Controle das campanhas, anúncios e investimentos do Fryburg Hotel.</p>
+
+      <p>
+        Controle das campanhas e investimentos de divulgação.
+      </p>
+
     </div>
 
-    <a routerLink="/admin/dashboard" class="botao-voltar">
-      ← Voltar ao Dashboard
+    <a routerLink="/admin" class="voltar">
+      <i class="bi bi-arrow-left"></i>
+      Voltar ao Painel Administrativo
     </a>
 
-  </div>
+  </header>
 
 
-  <div class="indicadores">
+  <main>
 
-    <div class="indicador">
-      <span>Campanhas</span>
-      <strong>{{ totalCampanhas }}</strong>
-      <small>Total cadastrado</small>
-    </div>
+    <!-- RESUMO -->
 
-    <div class="indicador">
-      <span>Campanhas ativas</span>
-      <strong>{{ campanhasAtivas }}</strong>
-      <small>Campanhas em andamento</small>
-    </div>
+    <section class="resumo">
 
-    <div class="indicador">
-      <span>Investimento</span>
-      <strong>{{ investimentoTotal | currency:'BRL' }}</strong>
-      <small>Orçamento total</small>
-    </div>
+      <div class="card">
 
-    <div class="indicador">
-      <span>Gasto</span>
-      <strong>{{ gastoTotal | currency:'BRL' }}</strong>
-      <small>Valor já utilizado</small>
-    </div>
+        <div class="icone">
+          📢
+        </div>
 
-  </div>
+        <div>
 
+          <span>Total de campanhas</span>
 
-  <div class="card">
+          <strong>
+            {{ totalCampanhas }}
+          </strong>
 
-    <h2>Nova campanha</h2>
+          <small>
+            campanhas cadastradas
+          </small>
 
-    <div class="formulario">
-
-      <div class="campo">
-
-        <label>Nome da campanha</label>
-
-        <input
-          type="text"
-          [(ngModel)]="nome"
-          placeholder="Ex: Promoção de verão"
-        >
+        </div>
 
       </div>
 
 
-      <div class="campo">
+      <div class="card">
 
-        <label>Canal</label>
+        <div class="icone">
+          📈
+        </div>
 
-        <input
-          type="text"
-          [(ngModel)]="canal"
-          placeholder="Ex: Instagram"
-        >
+        <div>
 
-      </div>
+          <span>Campanhas ativas</span>
 
+          <strong>
+            {{ campanhasAtivas }}
+          </strong>
 
-      <div class="campo">
+          <small>
+            em andamento
+          </small>
 
-        <label>Investimento</label>
-
-        <input
-          type="number"
-          [(ngModel)]="investimento"
-          placeholder="0"
-        >
+        </div>
 
       </div>
 
 
-      <div class="campo">
+      <div class="card">
 
-        <label>Gasto atual</label>
+        <div class="icone">
+          💰
+        </div>
 
-        <input
-          type="number"
-          [(ngModel)]="gasto"
-          placeholder="0"
-        >
+        <div>
+
+          <span>Investimento</span>
+
+          <strong>
+            R$ {{ investimentoTotal | number:'1.2-2' }}
+          </strong>
+
+          <small>
+            total planejado
+          </small>
+
+        </div>
 
       </div>
 
 
-      <button
-        class="botao-adicionar"
-        (click)="adicionarCampanha()"
-      >
-        + Adicionar
-      </button>
+      <div class="card">
 
-    </div>
+        <div class="icone">
+          💳
+        </div>
 
-  </div>
+        <div>
 
+          <span>Gasto</span>
 
-  <div class="card">
+          <strong>
+            R$ {{ gastoTotal | number:'1.2-2' }}
+          </strong>
 
-    <h2>Campanhas de marketing</h2>
+          <small>
+            total utilizado
+          </small>
 
-    <div class="tabela-container">
+        </div>
 
-      <table>
+      </div>
 
-        <thead>
-
-          <tr>
-            <th>Campanha</th>
-            <th>Canal</th>
-            <th>Investimento</th>
-            <th>Gasto</th>
-            <th>Status</th>
-            <th>Ações</th>
-          </tr>
-
-        </thead>
+    </section>
 
 
-        <tbody>
+    <!-- CADASTRO -->
 
-          <tr *ngFor="let campanha of campanhas">
+    <section class="painel">
 
-            <td>
-              <strong>{{ campanha.nome }}</strong>
-            </td>
+      <div class="titulo">
 
-            <td>
+        <span>NOVA CAMPANHA</span>
+
+        <h2>Adicionar campanha</h2>
+
+        <p>
+          Cadastre uma nova campanha de marketing.
+        </p>
+
+      </div>
+
+
+      <div class="formulario">
+
+        <div class="campo">
+
+          <label>Nome da campanha</label>
+
+          <input
+            type="text"
+            [(ngModel)]="nome"
+            placeholder="Ex: Promoção de verão"
+          >
+
+        </div>
+
+
+        <div class="campo">
+
+          <label>Canal</label>
+
+          <input
+            type="text"
+            [(ngModel)]="canal"
+            placeholder="Ex: Instagram"
+          >
+
+        </div>
+
+
+        <div class="campo">
+
+          <label>Investimento</label>
+
+          <input
+            type="number"
+            [(ngModel)]="investimento"
+            placeholder="0"
+          >
+
+        </div>
+
+
+        <div class="campo">
+
+          <label>Gasto</label>
+
+          <input
+            type="number"
+            [(ngModel)]="gasto"
+            placeholder="0"
+          >
+
+        </div>
+
+
+        <button
+          class="btn-adicionar"
+          (click)="adicionarCampanha()"
+        >
+
+          <i class="bi bi-plus-lg"></i>
+
+          Adicionar
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- CAMPANHAS -->
+
+    <section class="painel">
+
+      <div class="titulo">
+
+        <span>CAMPANHAS</span>
+
+        <h2>Campanhas cadastradas</h2>
+
+      </div>
+
+
+      <div class="tabela">
+
+        <div class="cabecalho">
+
+          <span>Campanha</span>
+          <span>Canal</span>
+          <span>Investimento</span>
+          <span>Gasto</span>
+          <span>Status</span>
+          <span>Ação</span>
+
+        </div>
+
+
+        @for (campanha of campanhas; track campanha.id) {
+
+          <div class="linha">
+
+            <strong>
+              {{ campanha.nome }}
+            </strong>
+
+            <span>
               {{ campanha.canal }}
-            </td>
+            </span>
 
-            <td>
-              {{ campanha.investimento | currency:'BRL' }}
-            </td>
+            <strong>
+              R$ {{ campanha.investimento | number:'1.2-2' }}
+            </strong>
 
-            <td>
-              {{ campanha.gasto | currency:'BRL' }}
-            </td>
-
-            <td>
-
-              <button
-                class="status"
-                [class.ativa]="campanha.status === 'Ativa'"
-                [class.concluida]="campanha.status === 'Concluída'"
-                (click)="alterarStatus(campanha)"
-              >
-                {{ campanha.status }}
-              </button>
-
-            </td>
-
-            <td>
-
-              <button
-                class="botao-excluir"
-                (click)="removerCampanha(campanha.id)"
-              >
-                Excluir
-              </button>
-
-            </td>
-
-          </tr>
-
-        </tbody>
-
-      </table>
-
-    </div>
-
-  </div>
+            <strong>
+              R$ {{ campanha.gasto | number:'1.2-2' }}
+            </strong>
 
 
-  <div class="resultado">
+            <button
+              class="status"
+              [class.ativa]="campanha.status === 'Ativa'"
+              [class.concluida]="campanha.status === 'Concluída'"
+              (click)="alterarStatus(campanha)"
+            >
+              {{ campanha.status }}
+            </button>
 
-    <div>
-      <span>Saldo disponível para marketing</span>
-      <strong>{{ saldoMarketing | currency:'BRL' }}</strong>
-    </div>
 
-  </div>
+            <button
+              class="excluir"
+              (click)="removerCampanha(campanha.id)"
+            >
+
+              <i class="bi bi-trash"></i>
+
+            </button>
+
+          </div>
+
+        }
+
+
+        @if (campanhas.length === 0) {
+
+          <div class="vazio">
+
+            <i class="bi bi-megaphone"></i>
+
+            <h3>
+              Nenhuma campanha cadastrada
+            </h3>
+
+            <p>
+              Adicione uma campanha acima.
+            </p>
+
+          </div>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <!-- SALDO -->
+
+    <section class="saldo">
+
+      <div>
+
+        <span>
+          SALDO DISPONÍVEL PARA MARKETING
+        </span>
+
+        <h2>
+          R$ {{ saldoMarketing | number:'1.2-2' }}
+        </h2>
+
+      </div>
+
+      <div class="check">
+        ✓
+      </div>
+
+    </section>
+
+
+    <!-- INFORMAÇÃO -->
+
+    <section class="informacao">
+
+      <div>ℹ️</div>
+
+      <div>
+
+        <h3>Controle de marketing</h3>
+
+        <p>
+          Acompanhe os investimentos e gastos das campanhas
+          para controlar o orçamento de divulgação do hotel.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
 
 </div>

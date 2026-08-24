@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 interface Campanha {
   id: number;
@@ -13,16 +14,17 @@ interface Campanha {
 
 @Component({
   selector: 'app-marketintg',
-  imports: [CommonModule, FormsModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './marketintg.html',
-  styleUrl: './marketintg.css',
+  styleUrl: './marketintg.css'
 })
 export class Marketintg {
 
   nome = '';
   canal = '';
-  investimento: number = 0;
-  gasto: number = 0;
+  investimento = 0;
+  gasto = 0;
 
   campanhas: Campanha[] = this.carregarDados();
 

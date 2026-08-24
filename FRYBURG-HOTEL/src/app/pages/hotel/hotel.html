@@ -1,6 +1,8 @@
 @if (hotel) {
+
   <nav class="navbar navbar-dark hotel-navbar">
     <div class="container">
+
       <a class="navbar-brand" routerLink="/home">
         <i class="bi bi-buildings"></i>
         Fryburg Hotel
@@ -10,22 +12,28 @@
         <i class="bi bi-arrow-left"></i>
         Voltar
       </a>
+
     </div>
   </nav>
 
   <section class="hotel-hero">
+
     <img [src]="hotel.imagem" [alt]="hotel.nome" />
 
     <div class="hero-content">
       <div class="container">
+
         <span class="stars">★★★★★</span>
 
         <h1>{{ hotel.nome }}</h1>
 
         <p>{{ hotel.endereco }}</p>
+
       </div>
     </div>
+
   </section>
+
 
   <main class="container py-5">
 
@@ -38,6 +46,7 @@
         <p class="description">
           {{ hotel.descricao }}
         </p>
+
 
         <div class="features">
 
@@ -69,6 +78,7 @@
 
         </div>
 
+
         <hr />
 
         <h2>Restaurante</h2>
@@ -77,6 +87,7 @@
           Nosso restaurante oferece pratos preparados com ingredientes
           selecionados, café da manhã, almoço e jantar.
         </p>
+
 
         <div class="menu-card">
 
@@ -97,6 +108,7 @@
 
         </div>
 
+
         <hr />
 
         <h2>Perguntas frequentes</h2>
@@ -106,6 +118,7 @@
           <div class="accordion-item">
 
             <h2 class="accordion-header">
+
               <button
                 class="accordion-button"
                 type="button"
@@ -114,6 +127,7 @@
               >
                 O hotel possui restaurante?
               </button>
+
             </h2>
 
             <div
@@ -121,17 +135,21 @@
               class="accordion-collapse collapse show"
               data-bs-parent="#faq"
             >
+
               <div class="accordion-body">
                 Sim. O hotel possui restaurante próprio com café da manhã,
                 almoço e jantar.
               </div>
+
             </div>
 
           </div>
 
+
           <div class="accordion-item">
 
             <h2 class="accordion-header">
+
               <button
                 class="accordion-button collapsed"
                 type="button"
@@ -140,6 +158,7 @@
               >
                 O hotel possui estacionamento?
               </button>
+
             </h2>
 
             <div
@@ -147,16 +166,20 @@
               class="accordion-collapse collapse"
               data-bs-parent="#faq"
             >
+
               <div class="accordion-body">
                 Sim. O estacionamento está disponível para os hóspedes.
               </div>
+
             </div>
 
           </div>
 
+
           <div class="accordion-item">
 
             <h2 class="accordion-header">
+
               <button
                 class="accordion-button collapsed"
                 type="button"
@@ -165,6 +188,7 @@
               >
                 É possível reservar pela plataforma?
               </button>
+
             </h2>
 
             <div
@@ -172,10 +196,12 @@
               class="accordion-collapse collapse"
               data-bs-parent="#faq"
             >
+
               <div class="accordion-body">
                 Sim. A plataforma permite consultar as datas disponíveis
                 e calcular o valor da hospedagem.
               </div>
+
             </div>
 
           </div>
@@ -183,6 +209,7 @@
         </div>
 
       </div>
+
 
       <div class="col-lg-4">
 
@@ -192,13 +219,10 @@
             A partir de
           </p>
 
-          
           <h3>
-             R$ {{ hotel?.precoDiaria }}
-             <small>/ noite</small>
+            R$ {{ hotel.precoDiaria }}
+            <small>/ noite</small>
           </h3>
-
-          
 
           <div class="price-line">
             <span>★★★★★</span>
@@ -208,23 +232,31 @@
           <hr />
 
           <label>Check-in</label>
+
           <input
             type="date"
             class="form-control mb-3"
           />
 
           <label>Check-out</label>
+
           <input
             type="date"
             class="form-control mb-3"
           />
 
+
+          <!-- CORRIGIDO -->
           <button
             class="btn btn-primary w-100"
-            routerLink="/reservas"
+            [routerLink]="['/reservas']"
+            [queryParams]="{ hotel: hotel.id }"
           >
+
             <i class="bi bi-calendar-check"></i>
+
             Reservar agora
+
           </button>
 
         </div>
@@ -241,7 +273,10 @@
 
     <h2>Hotel não encontrado</h2>
 
-    <a routerLink="/home" class="btn btn-primary">
+    <a
+      routerLink="/home"
+      class="btn btn-primary"
+    >
       Voltar para a página inicial
     </a>
 

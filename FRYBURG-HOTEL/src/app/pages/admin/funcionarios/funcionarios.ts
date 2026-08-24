@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 interface Funcionario {
   id: number;
@@ -13,7 +14,7 @@ interface Funcionario {
 @Component({
   selector: 'app-funcionarios',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './funcionarios.html',
   styleUrl: './funcionarios.css'
 })
@@ -30,12 +31,16 @@ export class Funcionarios {
     this.carregarFuncionarios();
   }
 
-  carregarFuncionarios() {
+  carregarFuncionarios(): void {
+
     const dados = localStorage.getItem('funcionarios');
 
     if (dados) {
+
       this.funcionarios = JSON.parse(dados);
+
     } else {
+
       this.funcionarios = [
         {
           id: 1,
@@ -64,14 +69,16 @@ export class Funcionarios {
     }
   }
 
-  salvarFuncionarios() {
+  salvarFuncionarios(): void {
+
     localStorage.setItem(
       'funcionarios',
       JSON.stringify(this.funcionarios)
     );
+
   }
 
-  adicionarFuncionario() {
+  adicionarFuncionario(): void {
 
     if (
       !this.nome ||
@@ -101,7 +108,7 @@ export class Funcionarios {
     this.salario = null;
   }
 
-  excluirFuncionario(id: number) {
+  excluirFuncionario(id: number): void {
 
     const confirmar = confirm(
       'Deseja realmente excluir este funcionário?'
@@ -119,9 +126,11 @@ export class Funcionarios {
   }
 
   get totalFolha(): number {
+
     return this.funcionarios.reduce(
       (total, funcionario) => total + funcionario.salario,
       0
     );
+
   }
 }

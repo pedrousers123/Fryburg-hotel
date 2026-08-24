@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 interface ManutencaoItem {
   id: number;
@@ -12,19 +13,21 @@ interface ManutencaoItem {
 
 @Component({
   selector: 'app-manutencao',
-  imports: [CommonModule, FormsModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './manutencao.html',
-  styleUrl: './manutencao.css',
+  styleUrl: './manutencao.css'
 })
 export class Manutencao {
 
   equipamento = '';
   setor = '';
-  custo: number = 0;
+  custo = 0;
 
   manutencoes: ManutencaoItem[] = this.carregarDados();
 
   carregarDados(): ManutencaoItem[] {
+
     const dados = localStorage.getItem('fryburg_manutencoes');
 
     if (dados) {
@@ -64,10 +67,12 @@ export class Manutencao {
   }
 
   salvarDados(): void {
+
     localStorage.setItem(
       'fryburg_manutencoes',
       JSON.stringify(this.manutencoes)
     );
+
   }
 
   adicionarManutencao(): void {

@@ -1,161 +1,252 @@
-<div class="pagina">
+<div class="manutencao">
 
-  <div class="cabecalho">
+  <header class="topo">
+
     <div>
+      <span>FRYBURG HOTEL</span>
       <h1>Manutenção</h1>
-      <p>Controle de reparos, equipamentos e serviços do hotel.</p>
+      <p>Controle dos equipamentos e serviços de manutenção.</p>
     </div>
 
-    <a routerLink="/admin/dashboard" class="botao-voltar">
-      ← Voltar ao Dashboard
+    <a routerLink="/admin" class="voltar">
+      <i class="bi bi-arrow-left"></i>
+      Voltar ao Painel Administrativo
     </a>
-  </div>
+
+  </header>
 
 
-  <div class="indicadores">
+  <main>
 
-    <div class="indicador">
-      <span>Total</span>
-      <strong>{{ totalManutencoes }}</strong>
-      <small>Manutenções cadastradas</small>
-    </div>
+    <!-- RESUMO -->
 
-    <div class="indicador">
-      <span>Pendentes</span>
-      <strong>{{ manutencoesPendentes }}</strong>
-      <small>Aguardando serviço</small>
-    </div>
+    <section class="resumo">
 
-    <div class="indicador">
-      <span>Em andamento</span>
-      <strong>{{ manutencoesAndamento }}</strong>
-      <small>Serviços em execução</small>
-    </div>
+      <div class="card">
+        <div class="icone">🔧</div>
 
-    <div class="indicador">
-      <span>Custo total</span>
-      <strong>{{ custoTotal | currency:'BRL' }}</strong>
-      <small>Valor das manutenções</small>
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-    <h2>Nova manutenção</h2>
-
-    <div class="formulario">
-
-      <div class="campo">
-        <label>Equipamento / serviço</label>
-
-        <input
-          type="text"
-          [(ngModel)]="equipamento"
-          placeholder="Ex: Ar-condicionado"
-        >
+        <div>
+          <span>Total</span>
+          <strong>{{ totalManutencoes }}</strong>
+          <small>manutenções</small>
+        </div>
       </div>
 
-      <div class="campo">
-        <label>Setor</label>
 
-        <input
-          type="text"
-          [(ngModel)]="setor"
-          placeholder="Ex: Quartos"
-        >
+      <div class="card">
+        <div class="icone">⏳</div>
+
+        <div>
+          <span>Pendentes</span>
+          <strong>{{ manutencoesPendentes }}</strong>
+          <small>aguardando</small>
+        </div>
       </div>
 
-      <div class="campo">
-        <label>Custo</label>
 
-        <input
-          type="number"
-          [(ngModel)]="custo"
-          placeholder="0"
-        >
+      <div class="card">
+        <div class="icone">⚙️</div>
+
+        <div>
+          <span>Em andamento</span>
+          <strong>{{ manutencoesAndamento }}</strong>
+          <small>em execução</small>
+        </div>
       </div>
 
-      <button
-        class="botao-adicionar"
-        (click)="adicionarManutencao()"
-      >
-        + Adicionar
-      </button>
 
-    </div>
+      <div class="card">
+        <div class="icone">💰</div>
 
-  </div>
+        <div>
+          <span>Custo total</span>
+          <strong>
+            R$ {{ custoTotal | number:'1.2-2' }}
+          </strong>
+          <small>manutenção</small>
+        </div>
+      </div>
+
+    </section>
 
 
-  <div class="card">
+    <!-- CADASTRO -->
 
-    <h2>Manutenções cadastradas</h2>
+    <section class="painel">
 
-    <div class="tabela-container">
+      <div class="titulo">
 
-      <table>
+        <span>NOVA MANUTENÇÃO</span>
 
-        <thead>
-          <tr>
-            <th>Equipamento</th>
-            <th>Setor</th>
-            <th>Custo</th>
-            <th>Status</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
+        <h2>Adicionar manutenção</h2>
 
-        <tbody>
+        <p>
+          Cadastre um equipamento ou serviço.
+        </p>
 
-          <tr *ngFor="let manutencao of manutencoes">
+      </div>
 
-            <td>
-              <strong>{{ manutencao.equipamento }}</strong>
-            </td>
 
-            <td>
+      <div class="formulario">
+
+        <div class="campo">
+
+          <label>Equipamento</label>
+
+          <input
+            type="text"
+            [(ngModel)]="equipamento"
+            placeholder="Ex: Ar-condicionado"
+          >
+
+        </div>
+
+
+        <div class="campo">
+
+          <label>Setor</label>
+
+          <input
+            type="text"
+            [(ngModel)]="setor"
+            placeholder="Ex: Quartos"
+          >
+
+        </div>
+
+
+        <div class="campo">
+
+          <label>Custo</label>
+
+          <input
+            type="number"
+            [(ngModel)]="custo"
+            placeholder="0"
+          >
+
+        </div>
+
+
+        <button
+          class="btn-adicionar"
+          (click)="adicionarManutencao()"
+        >
+          <i class="bi bi-plus-lg"></i>
+          Adicionar
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- LISTA -->
+
+    <section class="painel">
+
+      <div class="titulo">
+
+        <span>CONTROLE</span>
+
+        <h2>Manutenções cadastradas</h2>
+
+      </div>
+
+
+      <div class="tabela">
+
+        <div class="cabecalho">
+
+          <span>Equipamento</span>
+          <span>Setor</span>
+          <span>Custo</span>
+          <span>Status</span>
+          <span>Ações</span>
+
+        </div>
+
+
+        @for (manutencao of manutencoes; track manutencao.id) {
+
+          <div class="linha">
+
+            <strong>
+              {{ manutencao.equipamento }}
+            </strong>
+
+            <span>
               {{ manutencao.setor }}
-            </td>
+            </span>
 
-            <td>
-              {{ manutencao.custo | currency:'BRL' }}
-            </td>
+            <strong>
+              R$ {{ manutencao.custo | number:'1.2-2' }}
+            </strong>
 
-            <td>
 
-              <button
-                class="status"
-                [class.pendente]="manutencao.status === 'Pendente'"
-                [class.andamento]="manutencao.status === 'Em andamento'"
-                [class.concluida]="manutencao.status === 'Concluída'"
-                (click)="alterarStatus(manutencao)"
-              >
-                {{ manutencao.status }}
-              </button>
+            <button
+              class="status"
+              [class.pendente]="manutencao.status === 'Pendente'"
+              [class.andamento]="manutencao.status === 'Em andamento'"
+              [class.concluida]="manutencao.status === 'Concluída'"
+              (click)="alterarStatus(manutencao)"
+            >
+              {{ manutencao.status }}
+            </button>
 
-            </td>
 
-            <td>
+            <button
+              class="excluir"
+              (click)="removerManutencao(manutencao.id)"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
 
-              <button
-                class="botao-excluir"
-                (click)="removerManutencao(manutencao.id)"
-              >
-                Excluir
-              </button>
+          </div>
 
-            </td>
+        }
 
-          </tr>
 
-        </tbody>
+        @if (manutencoes.length === 0) {
 
-      </table>
+          <div class="vazio">
 
-    </div>
+            <i class="bi bi-tools"></i>
 
-  </div>
+            <h3>Nenhuma manutenção cadastrada</h3>
+
+            <p>
+              Adicione uma manutenção para começar.
+            </p>
+
+          </div>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <!-- INFORMAÇÃO -->
+
+    <section class="informacao">
+
+      <div>ℹ️</div>
+
+      <div>
+
+        <h3>Controle de manutenção</h3>
+
+        <p>
+          Clique no status de uma manutenção para avançar
+          entre Pendente, Em andamento e Concluída.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
 
 </div>

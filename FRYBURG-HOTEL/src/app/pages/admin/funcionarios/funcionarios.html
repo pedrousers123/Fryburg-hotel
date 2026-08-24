@@ -1,211 +1,266 @@
-<div class="funcionarios-page">
+<div class="funcionarios">
 
-  <div class="topo">
+  <header class="topo">
+
     <div>
-      <span class="subtitulo">GESTÃO DE PESSOAS</span>
+      <span>FRYBURG HOTEL</span>
+
       <h1>Funcionários</h1>
-      <p>Controle da equipe e da folha salarial do hotel.</p>
+
+      <p>
+        Controle da equipe, cargos, setores e salários.
+      </p>
     </div>
 
-    <a routerLink="/admin/dashboard" class="btn-voltar">
+    <a routerLink="/admin" class="voltar">
       <i class="bi bi-arrow-left"></i>
-      Dashboard
+      Voltar ao Painel Administrativo
     </a>
-  </div>
+
+  </header>
 
 
-  <!-- RESUMO -->
+  <main>
 
-  <div class="resumo">
+    <!-- RESUMO -->
 
-    <div class="resumo-card">
-      <div class="icone">
-        <i class="bi bi-people"></i>
+    <section class="resumo">
+
+      <div class="card">
+
+        <div class="icone">
+          👥
+        </div>
+
+        <div>
+
+          <span>Total de funcionários</span>
+
+          <strong>
+            {{ funcionarios.length }}
+          </strong>
+
+          <small>
+            colaboradores
+          </small>
+
+        </div>
+
       </div>
 
-      <div>
-        <span>Total de funcionários</span>
-        <strong>{{ funcionarios.length }}</strong>
+
+      <div class="card">
+
+        <div class="icone">
+          💰
+        </div>
+
+        <div>
+
+          <span>Folha salarial</span>
+
+          <strong>
+            R$ {{ totalFolha | number:'1.2-2' }}
+          </strong>
+
+          <small>
+            total mensal
+          </small>
+
+        </div>
+
       </div>
-    </div>
+
+    </section>
 
 
-    <div class="resumo-card">
-      <div class="icone">
-        <i class="bi bi-cash-stack"></i>
-      </div>
+    <!-- CADASTRO -->
 
-      <div>
-        <span>Folha salarial</span>
-        <strong>
-          R$ {{ totalFolha | number:'1.2-2' }}
-        </strong>
-      </div>
-    </div>
+    <section class="painel">
 
-  </div>
+      <div class="titulo">
 
+        <span>NOVO FUNCIONÁRIO</span>
 
-  <!-- CADASTRO -->
-
-  <div class="painel">
-
-    <div class="titulo">
-      <div>
-        <span>NOVO CADASTRO</span>
         <h2>Adicionar funcionário</h2>
-      </div>
-    </div>
 
+        <p>
+          Cadastre um novo membro da equipe.
+        </p>
 
-    <div class="formulario">
-
-      <div class="campo">
-        <label>Nome</label>
-
-        <input
-          type="text"
-          [(ngModel)]="nome"
-          placeholder="Nome completo"
-        >
       </div>
 
 
-      <div class="campo">
-        <label>Cargo</label>
+      <div class="formulario">
 
-        <input
-          type="text"
-          [(ngModel)]="cargo"
-          placeholder="Ex: Recepcionista"
-        >
-      </div>
+        <div class="campo">
 
+          <label>Nome</label>
 
-      <div class="campo">
-        <label>Setor</label>
+          <input
+            type="text"
+            [(ngModel)]="nome"
+            placeholder="Nome completo"
+          >
 
-        <select [(ngModel)]="setor">
-
-          <option value="">Selecione</option>
-
-          <option value="Administração">
-            Administração
-          </option>
-
-          <option value="Recepção">
-            Recepção
-          </option>
-
-          <option value="Restaurante">
-            Restaurante
-          </option>
-
-          <option value="Limpeza">
-            Limpeza
-          </option>
-
-          <option value="Manutenção">
-            Manutenção
-          </option>
-
-          <option value="Marketing">
-            Marketing
-          </option>
-
-        </select>
-      </div>
+        </div>
 
 
-      <div class="campo">
-        <label>Salário</label>
+        <div class="campo">
 
-        <input
-          type="number"
-          [(ngModel)]="salario"
-          placeholder="Ex: 2500"
-        >
-      </div>
+          <label>Cargo</label>
 
+          <input
+            type="text"
+            [(ngModel)]="cargo"
+            placeholder="Ex: Recepcionista"
+          >
 
-      <button
-        class="btn-adicionar"
-        (click)="adicionarFuncionario()"
-      >
-        <i class="bi bi-plus-lg"></i>
-        Adicionar
-      </button>
-
-    </div>
-
-  </div>
+        </div>
 
 
-  <!-- LISTA -->
+        <div class="campo">
 
-  <div class="painel">
+          <label>Setor</label>
 
-    <div class="titulo">
-      <div>
-        <span>EQUIPE</span>
-        <h2>Funcionários cadastrados</h2>
-      </div>
-    </div>
+          <input
+            type="text"
+            [(ngModel)]="setor"
+            placeholder="Ex: Recepção"
+          >
 
-
-    <div class="tabela">
-
-      <div class="linha cabecalho">
-        <span>Funcionário</span>
-        <span>Cargo</span>
-        <span>Setor</span>
-        <span>Salário</span>
-        <span>Ação</span>
-      </div>
+        </div>
 
 
-      <div
-        class="linha"
-        *ngFor="let funcionario of funcionarios"
-      >
+        <div class="campo">
 
-        <span class="nome">
-          <i class="bi bi-person-circle"></i>
-          {{ funcionario.nome }}
-        </span>
+          <label>Salário</label>
 
-        <span>
-          {{ funcionario.cargo }}
-        </span>
+          <input
+            type="number"
+            [(ngModel)]="salario"
+            placeholder="0"
+          >
 
-        <span>
-          {{ funcionario.setor }}
-        </span>
+        </div>
 
-        <span class="salario">
-          R$ {{ funcionario.salario | number:'1.2-2' }}
-        </span>
 
         <button
-          class="btn-excluir"
-          (click)="excluirFuncionario(funcionario.id)"
+          class="btn-adicionar"
+          (click)="adicionarFuncionario()"
         >
-          <i class="bi bi-trash"></i>
+
+          <i class="bi bi-plus-lg"></i>
+
+          Adicionar
+
         </button>
 
       </div>
 
+    </section>
 
-      <div
-        class="vazio"
-        *ngIf="funcionarios.length === 0"
-      >
-        <i class="bi bi-people"></i>
-        <p>Nenhum funcionário cadastrado.</p>
+
+    <!-- FUNCIONÁRIOS -->
+
+    <section class="painel">
+
+      <div class="titulo">
+
+        <span>EQUIPE</span>
+
+        <h2>Funcionários cadastrados</h2>
+
       </div>
 
-    </div>
 
-  </div>
+      <div class="tabela">
+
+        <div class="cabecalho">
+
+          <span>Nome</span>
+          <span>Cargo</span>
+          <span>Setor</span>
+          <span>Salário</span>
+          <span>Ação</span>
+
+        </div>
+
+
+        @for (funcionario of funcionarios; track funcionario.id) {
+
+          <div class="linha">
+
+            <strong>
+              {{ funcionario.nome }}
+            </strong>
+
+            <span>
+              {{ funcionario.cargo }}
+            </span>
+
+            <span>
+              {{ funcionario.setor }}
+            </span>
+
+            <strong>
+              R$ {{ funcionario.salario | number:'1.2-2' }}
+            </strong>
+
+            <button
+              class="excluir"
+              (click)="excluirFuncionario(funcionario.id)"
+            >
+
+              <i class="bi bi-trash"></i>
+
+            </button>
+
+          </div>
+
+        }
+
+
+        @if (funcionarios.length === 0) {
+
+          <div class="vazio">
+
+            <i class="bi bi-people"></i>
+
+            <h3>Nenhum funcionário cadastrado</h3>
+
+            <p>
+              Adicione um funcionário acima.
+            </p>
+
+          </div>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <!-- INFORMAÇÃO -->
+
+    <section class="informacao">
+
+      <div>ℹ️</div>
+
+      <div>
+
+        <h3>Controle da equipe</h3>
+
+        <p>
+          Os funcionários cadastrados ficam armazenados
+          no navegador para manter os dados durante o uso.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
 
 </div>
